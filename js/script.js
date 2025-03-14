@@ -106,3 +106,42 @@ function goPrevPage() {
         currentLocation--;
     }
 }
+
+//area de login:
+const container = document.getElementById('container-login');
+const registerBtn = document.getElementById('register');
+const loginBtn = document.getElementById('login');
+
+registerBtn.addEventListener('click', () => {
+    container.classList.add("active");
+});
+
+loginBtn.addEventListener('click', () => {
+    container.classList.remove("active");
+});
+
+for (let i=0; i< 1000; i++) {
+    const star = document.createElement ('div');
+    star.className = 'star';
+    document.body.appendChild(star);
+    star.style.left = `${Math.random()* 100}vw`;
+    star.style.top = `${Math.random()* 100}vh`;
+    star.style.width = `${Math.random() * 3 + 1}px`;
+    star.style.height = star.style.width;
+    star.style.animationDuration = `${Math.random()* 6 + 4}s`;
+}
+
+function Login(){
+    alert("Login realizado com sucesso!")
+    window.location.href = "index.html"
+    
+}
+
+function Cadastro(){
+    alert("Cadastro realizado com sucesso! Volte para a página de login")
+}
+
+function proximapag(){
+    // window.location.href = "esqueci_senha.html"
+}
+
