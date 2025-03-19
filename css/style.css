@@ -41,7 +41,7 @@
     pointer-events: none; /* Garante que não interfira nos botões do carrossel */
     
 }
-button.botoes, h1.botoes, a.botoes{
+button.botoes, h1.botoes, a.botoes, div.botoes{
     border-radius: 25px !important;
     min-width: 150px;
     background-color:  var(--rosa) ;
@@ -358,5 +358,73 @@ h1.materiaBaixo{
     width: 10% !important;
 }
 
+/* mural */
+.board {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 75%;
+    min-height: 700px;
+    position: relative;
+    padding: 10px;
+    padding-top: 0px;
+    border: 10px solid #cdaf7b;
+    border-radius: 5px;
+    background-image: url('../images/fundo_mural.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 3rem auto ;
+    
+    
+}
+.task {
+    background: white;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    cursor: grab;
+    border-radius: 5px;
+    width: 20%;
+    height: auto;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    position: absolute; /* Permite movimentação livre */
+    padding-top: 0px;
+    
+}
+.task img{
+    width: 100%;
+    border-radius: 5px;
+}
+.task h1, .task p{
+    width: 95%;
+    margin: auto;
+}
+#img_Mural{
+    
+    width: 500px;
+    height: 145px;
+}
 
+/* telas de atualizações */
 
+#div_user{
+    /* background-color: #DEDEDE; */
+    border-radius: 5px;
+    width: 25%;
+    height: 90vh;
+    padding: 5px;
+}
+#div_user img{
+    width: 60%;
+    min-height: 200px;
+    aspect-ratio: 1/1;
+}
+#div_user div.botoes{
+    text-align: center;
+    border: none;
+}
+#div_user a{
+    color: black;
+    text-decoration: none;
+}

@@ -107,41 +107,28 @@ function goPrevPage() {
     }
 }
 
-//area de login:
-const container = document.getElementById('container-login');
-const registerBtn = document.getElementById('register');
-const loginBtn = document.getElementById('login');
-
-registerBtn.addEventListener('click', () => {
-    container.classList.add("active");
-});
-
-loginBtn.addEventListener('click', () => {
-    container.classList.remove("active");
-});
-
-for (let i=0; i< 1000; i++) {
-    const star = document.createElement ('div');
-    star.className = 'star';
-    document.body.appendChild(star);
-    star.style.left = `${Math.random()* 100}vw`;
-    star.style.top = `${Math.random()* 100}vh`;
-    star.style.width = `${Math.random() * 3 + 1}px`;
-    star.style.height = star.style.width;
-    star.style.animationDuration = `${Math.random()* 6 + 4}s`;
+//mural:
+function allowDrop(event) {
+    event.preventDefault(); // Permite que o card seja solto no quadro
 }
 
-function Login(){
-    alert("Login realizado com sucesso!")
-    window.location.href = "index.html"
+function drag(event) {
+    event.dataTransfer.setData("text", event.target.id); // Armazena o ID do card arrastado
+}
+
+function drop(event) {
+    event.preventDefault();
+    const taskId = event.dataTransfer.getData("text"); // Recupera o ID do card arrastado
+    const task = document.getElementById(taskId);
     
-}
+    if (task) {
+        const board = document.getElementById("board");
+        const rect = board.getBoundingClientRect();
+        const offsetX = event.clientX - rect.left;
+        const offsetY = event.clientY - rect.top;
 
-function Cadastro(){
-    alert("Cadastro realizado com sucesso! Volte para a página de login")
+        // Ajusta a posição do card baseado na posição do mouse
+        task.style.left = `${offsetX - task.offsetWidth / 2}px`;
+        task.style.top = `${offsetY - task.offsetHeight / 2}px`;
+    }
 }
-
-function proximapag(){
-    // window.location.href = "esqueci_senha.html"
-}
-

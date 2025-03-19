@@ -11,26 +11,26 @@
 </head>
 <body class="d-flex justify-content-center align-items-center flex-column" style="height: 90vh; background-color: var(--cinza);">
     
-    <div class="container shadow" id="container">
+    <div class="container shadow" id="container-login">
         <div class="form-container sign-up">
-            <form action="">
+            <form action="index.html">
                 <h1>Cadastro</h1>
                 
                 <input type="text" placeholder="Nome">
                 <input type="email" placeholder="Emaill">
                 <input type="password" placeholder="Senha">
-                <button type="submit" onclick="Cadastro()">Cadastrar</button>
+                <button type="submit" id="bt_Cadastrar" onclick="Cadastrar()">Cadastrar</button>
             </form>
         </div>
         <div class="form-container sign-in">
-            <form action="">
+            <form action="index.html">
                 <h1>Login</h1> 
                 
                 
                 <input type="text" placeholder="Nome">
                 <input type="password" placeholder="Senha">
                 <a href="#" onclick="proximapag()">Esqueci minha senha</a>
-                <button type="submit" onclick="Login()">Login</button>
+                <button type="submit" id="bt_login">Login</button>
             </form>
         </div>
         <div class="toggle-container">
@@ -55,10 +55,15 @@
     </div>
      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
     <script>
-        const container = document.getElementById('container');
+        const container = document.getElementById('container-login');
         const registerBtn = document.getElementById('register');
         const loginBtn = document.getElementById('login');
+        const bt_login_prox = document.getElementById('bt_login');
+        const bt_cadastrar_prox = document.getElementById('bt_Cadastrar');
+
+
 
         registerBtn.addEventListener('click', () => {
             container.classList.add("active");
@@ -68,21 +73,22 @@
             container.classList.remove("active");
         });
 
-        
 
-        function Login(){
+        bt_login_prox.addEventListener('click', () =>{
             alert("Login realizado com sucesso!")
-            window.location.href = "index.html"
+            window.location.href = "./index.html";
             
-        }
+        })
 
-        function Cadastro(){
-            alert("Cadastro realizado com sucesso! Volte para a página de login")
+        function Cadastrar(){
+            alert("Cadastro realizado com sucesso!")
+            window.location.href = "index.html";
         }
 
         function proximapag(){
             // window.location.href = "esqueci_senha.html"
         }
+
 
     </script>
 </body>
