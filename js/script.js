@@ -132,3 +132,6 @@ function drop(event) {
         task.style.top = `${offsetY - task.offsetHeight / 2}px`;
     }
 }
+
+
+//reviisar noticias:
