@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Revista</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    
+
+
+
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg h-100" style="background-color: var(--rosa);">
+            <div class="container-fluid">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <img src="./images/logo_InspireED.png" alt="" style="height: 35px;">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-5">
+                        <li class="nav-item">
+                            <a class="nav-link active text-light" aria-current="page" href="index.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" aria-current="page" href="#catalogosDivLivro">Livros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" aria-current="page" href="#mural">Mural</a>
+                        </li>
+
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Matérias
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=1">Artes</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=2">Biologia</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=3">Filosofia</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=4">Física</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=5">Geografia</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=6">História</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=7">Inglês</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=8">Matemática</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=9">Língua Portuguesa</a>
+                                </li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=10">Química</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=11">Sociologia</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- verificar userr -->
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="area_login.html">Login <i
+                                    class="bi bi-person-circle"></i></i></a>
+                        </li>
+
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="mt-5">
+        <div class="d-flex justify-content-around m-auto mt-5" style="width: 90%;">
+
+            <div class="d-flex flex-column align-items-center mt-5" id="div_user">
+                <img src="./images/user_img.jpg" alt="" class="rounded-circle border border-3 object-fit-cover" id="foto_user">
+                <h2 class="mt-3 fs-4" id="nome_userH1" style="cursor: pointer;" data-bs-toggle='modal' data-bs-target='#atualizar_perfil'>Nome Da Pessoa <i class="bi bi-pen"></i></h2>
+                <div class="botoes fs-5 mt-2 fw-normal" id="nivel_userP">Professor</div>
+
+                <a href="#" class="mt-3 fs-5" id="deslogar">Sair <i class="bi bi-box-arrow-in-right fs-5"></i></a>
+
+            </div>
+
+            
+
+            <!-- nivel 1 -->
+            <div class="area_btns p-3" id="area_aluno" style="display: none;">
+                <div id="bt_criar_noticia_aluno">
+                    <button id="criar_noticia" class="botoes fs-4 fw-normal" data-bs-target="#criarnoticia"
+                        data-bs-toggle="modal"><i class="bi bi-plus-lg"></i>
+                        Adicionar</button>
+                </div>
+
+                <h2 class="mb-4">Suas Notícias</h2>
+                <div id="noticias_aluno" class="div_questoes revisar_div suas_noticias">
+                    
+                </div>
+
+                
+            </div>
+
+            <!-- nivel 2 -->
+            <div class="area_btns p-3" id="area_professor" style="display: none;">
+                <h2 class="mb-4">Postagens</h2>
+                <div id="botoes_criar" class="">
+                    <a href="./revisar_livro.html" class="btn botoes fw-normal border-0 shadow fs-5" style="background-color: #f06926;">Livros</a>
+
+                    <a href="./revisar_noticia.html" class="btn botoes fw-normal border-0 shadow  fs-5" style="background-color: #81cd27;">Notícias</a>
+
+                    <a href="./revisar_conteudos.html" class="btn botoes fw-normal border-0 shadow  fs-5" style="background-color: #68b2f8;">Conteúdos</a>
+
+                    <a href="./revisar_mural.html" class="btn botoes fw-normal border-0 shadow  fs-5" style="background-color: #fecd23;">Mural</a>
+                    
+                    <a href="./revisar_questões.html" class="btn botoes fw-normal border-0 shadow  fs-5" style="background-color: #d50577;">Questões</a>
+                    
+                </div>
+
+                
+            </div>
+
+            <!-- nivel 3 -->
+            <div class="area_btns p-3" id="area_adm" style="display: none;">
+                <h2 class="mb-4">Postagens</h2>
+                <div id="botoes_criar" class="">
+                    <a href="./revisar_livro.html" class="btn botoes fw-normal border-0 shadow fs-5" style="background-color: #f06926;">Livros</a>
+
+                    <a href="./revisar_noticia.html" class="btn botoes fw-normal border-0 shadow  fs-5" style="background-color: #81cd27;">Notícias</a>
+
+                    <a href="./revisar_conteudos.html" class="btn botoes fw-normal border-0 shadow  fs-5" style="background-color: #68b2f8;">Conteúdos</a>
+
+                    <a href="./revisar_mural.html" class="btn botoes fw-normal border-0 shadow  fs-5" style="background-color: #fecd23;">Mural</a>
+                    
+                    <a href="./revisar_questões.html" class="btn botoes fw-normal border-0 shadow  fs-5" style="background-color: #d50577;">Questões</a>
+
+                    <a href="./revisar_user.html" class="btn botoes fw-normal border-0 shadow  fs-5" style="background-color: #001ab1;">Usuários</a>
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <!-- criar noticia -->
+
+        <!-- criar -->
+        <!-- form  -->
+        <div class="modal fade" id="criarnoticia" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Criar uma notícia</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="formCriarNoticia" enctype="multipart/form-data">
+                    
+                    <select id="materia_noticia" name="materia_noticia" required class="mt-2 mb-2 form-select">
+                      <option value="" class="selecionada" disabled selected>Selecione uma matéria</option>
+                      <option value="1">Artes</option>
+                      <option value="2">Biologia</option>
+                      <option value="3">Filosofia</option>
+                      <option value="4">Física</option>
+                      <option value="5">Geografia</option>
+                      <option value="6">História</option>
+                      <option value="7">Inglês</option>
+                      <option value="8">Língua Portuguesa</option>
+                      <option value="9">Matemática</option>
+                      <option value="10">Química</option>
+                      <option value="11">Sociologia</option>
+                    </select>
+          
+                    <div class="mb-1">
+                      <label for="titulo_noticia" class="col-form-label">Título:</label>
+                      <input type="text" name="titulo_noticia" id="titulo_noticia" class="form-control" required>
+                    </div>
+          
+                    <div class="mb-1">
+                      <label for="autor_noticia" class="col-form-label">Autor:</label>
+                      <input type="text" name="autor_noticia" id="autor_noticia" class="form-control" required>
+                    </div>
+          
+                    <div class="mb-1">
+                      <label for="link_noticia" class="col-form-label">Link:</label>
+                      <input type="text" name="link_noticia" id="link_noticia" class="form-control" required>
+                    </div>
+          
+                    <div class="mb-3 d-flex align-items-center mt-3">
+                      <label for="img_noticia" class="custom-file-upload">
+                        Imagem <i class="bi bi-cloud-upload"></i>
+                      </label>
+                      <span id="nome-arquivo" class="ms-3">Nenhum arquivo selecionado</span>
+                      <input type="file" name="img_noticia" id="img_noticia" accept="image/*" required />
+                    </div>
+          
+                    <div class="add_img_livro mt-2 d-flex justify-content-end" style="margin-bottom: 12px;">
+                      <button class="botoes fw-normal p-1" style="background-color: #a3e047;" type="submit">
+                        Postar
+                      </button>
+                    </div>
+                  </form>
+
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- animaçao -->
+        <div class="modal fade" id="exampleModalToggle2" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content text-center p-4 d-flex flex-column justify-content-center align-items-center" style="height: 50vh;">
+                <div class="checkmark-wrapper">
+                  <svg viewBox="0 0 100 100">
+                    <circle class="circle" cx="50" cy="50" r="45" />
+                    <polyline class="checkmark" points="30,52 45,70 75,35" />
+                  </svg>
+                </div>
+                <h5 class="modal-title" id="mensagem_sucess">Conteúdo registrado com sucesso!</h5>
+              </div>
+            </div>
+          </div>
+        <!-- <button class="btn btn-primary" data-bs-target="#criarlivro" data-bs-toggle="modal">Open first modal</button>      -->
+
+
+        <!-- modal de visualizar a noticia -> aluno -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header cadaLivro border-0">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex flex-column justify-content-center align-items-center p-3 border-0">
+                        <img src="" alt="Capa do livro" id="modalImg" class="rounded" style="height: auto; width: 75%;">
+                        <div class="modalCadaLivroTxt w-50 mt-3">
+                            <h2 class="text-center fs-3 fw-semibold" id="modalTitulo"></h2>
+                            <p class="text-center mb-0" id="modalDescricao"></p>
+
+                            <div class="disponivelBt mt-0">
+                                <div class="d-flex justify-content-center" id="modalLinks">
+            
+                                    <a href="https://www.amazon.com.br/%C3%81gua-funda-Ruth-Guimar%C3%A3es/dp/8573267011"
+                                        target="_blank" class="botoes border-0 p-2 fw-normal m-2 text-center">Disponível em</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- atualizar perfil -->
+         <!-- atualizar -->
+         <div class="modal fade" id="atualizar_perfil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Editar usuário</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="formAtualizarUsuario" enctype="multipart/form-data">
+                    <div id="div_img_editar" class="d-flex justify-content-center align-items-center"><img src="./images/user_img.jpg" alt="" class="rounded-circle border border-3 object-fit-cover" id="foto_user_editar"></div>
+
+                    <div class="mb-3 d-flex align-items-center">
+                      <label for="imagem_user" class="custom-file-upload">
+                        Foto de perfil <i class="bi bi-cloud-upload"></i>
+                      </label>
+                      <span id="nome-arquivo_user" class="ms-3">Nenhum arquivo selecionado</span>
+                      <input type="file" name="imagem_user" id="imagem_user" accept="image/*" required />
+                    </div>
+          
+                    <div class="mb-3">
+                      <label for="nome_user_atualizar" class="col-form-label">Nome:</label>
+                      <input type="text" class="form-control" id="nome_user_atualizar" name="nome_user_atualizar" required>
+                    </div>
+          
+                    <div class="mb-3">
+                      <label for="email_user_atualizar" class="col-form-label">Email:</label>
+                      <input type="email" class="form-control" id="email_user_atualizar" name="email_user_atualizar" required>
+                    </div>
+          
+                    <input type="hidden" id="id_user_atualizar" name="id_user_atualizar">
+                    <input type="hidden" id="imagem_antiga_user" name="imagem_antiga_user">
+                    <input type="hidden" id="senha_antiga" name="senha_antiga">
+                    <input type="hidden" id="nivel_user_antigo" name="nivel_user_antigo">
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                  <button type="button" class="btn btn-primary" id="atualizar_user">Atualizar</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+ 
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+
+        let prevScroll = window.scrollY;
+        const nav = document.querySelector("header");
+
+        window.addEventListener("scroll", () => {
+        const currentScroll = window.scrollY;
+        
+        if (currentScroll < prevScroll) {
+            // Rolando para cima
+            nav.style.top = "0";
+        } else {
+            // Rolando para baixo
+            nav.style.top = "-100px"; // ou a altura da nav, para esconder
+        }
+
+        prevScroll = currentScroll;
+        });
+
+
+        // verificar se está logado, direcional nivel de user, atualizar informações do user
+        document.addEventListener("DOMContentLoaded", function() {
+            const nivel_user = localStorage.getItem('Usuario_nivel');
+            const nome_user = localStorage.getItem('Usuario_nome');
+            const senha_user = localStorage.getItem('Usuario_senha');
+            const email_user = localStorage.getItem('Usuario_email');
+            const id_user = localStorage.getItem('id_user');
+            const imagem_capa = localStorage.getItem('Usuario_img');
+            console.log('nome da pessoa:', nome_user);
+            console.log("imagem:", imagem_capa);
+
+            console.log("imagem: ", imagem_capa);
+
+            if (imagem_capa && imagem_capa !== "null") {
+                document.getElementById('foto_user').src = `../backend/uploads/${imagem_capa}`;
+            } else{
+                document.getElementById('foto_user').src = `./images/user_img.jpg`;
+
+            }
+            
+
+
+            if (nome_user) {
+            
+                document.getElementById("nome_userH1").innerHTML = `${nome_user} <i class="bi bi-pen"></i>`;
+            } else {
+               
+                document.getElementById("nome_userH1").innerHTML = `Nome Da Pessoa <i class="bi bi-pen"></i>`;
+            }
+
+            if(!nivel_user){
+                // alert("Você precisa estar logado para ter acesso a essa página!");
+                window.location.href = 'login2.html';
+                return;
+            }
+
+            switch(nivel_user){
+                case '1':
+                    document.getElementById("area_aluno").style.display = 'block';
+                    document.getElementById("nivel_userP").classList.add('botoes_aluno');
+                    document.getElementById("nivel_userP").innerText = 'Aluno';
+                    return;
+                case '2':
+                    document.getElementById("area_professor").style.display = 'block';
+                    document.getElementById("nivel_userP").classList.add('botoes_professor');
+                    document.getElementById("nivel_userP").innerText = 'Professor';
+                    return;
+                case '3':
+                    document.getElementById("area_adm").style.display = 'block';
+                    document.getElementById("nivel_userP").classList.add('botoes_adm');
+                    document.getElementById("nivel_userP").innerText = 'Administrador';
+                    return;
+
+            }
+
+            // atualizar informacoes do user:
+            let foto = document.getElementById("foto_user");
+            console.log(foto);
+            foto.src = '../backend/uploads/'+imagem_capa;
+            
+            if (nome_user) {
+                document.getElementById("nome_userH1").innerHTML = `${nome_user} <i class="bi bi-pen"></i>`;
+            } else {
+                document.getElementById("nome_userH1").innerHTML = `Usuário <i class="bi bi-pen"></i>`;
+            }
+
+        })
+
+        // pegar as noticias do aluno -> nivel 1
+        async function suasNoticias() {
+            const id_user = localStorage.getItem('id_user');
+
+            try {
+                let response = await fetch(`../backend/endpoint/Get/conteudo_get.php?id_user=${id_user}`);
+                let data = await response.json();
+
+                console.log(data);
+
+                let div_suas_noticias = document.getElementById('noticias_aluno'); 
+                div_suas_noticias.innerText = "";
+               
+                data.forEach((item, index) => {
+                    
+                    const elemA = document.createElement('a');
+                    elemA.classList.add('noticia_div_revisar', 'shadow', 'p-3');
+                    elemA.href = "#";
+                    elemA.setAttribute('data-bs-toggle', 'modal');
+                    elemA.setAttribute('data-bs-target', '#exampleModal'); //ver de colocar o modal
+
+                    elemA.setAttribute('data-id', item.idConteudos); // Exemplo: ID
+                    elemA.setAttribute('data-titulo', item.Conteudo_titulo);
+                    elemA.setAttribute('data-link', item.Conteudo_link);
+                    elemA.setAttribute('data-materia', item.Matéria_tipo);
+                    elemA.setAttribute('data-imagem', item.Conteudo_img);
+                    elemA.setAttribute('data-status', item.Conteudo_status);
+
+                    if (item.Conteudo_status == '1'){
+                        elemA.classList.add('aluno_pendente');
+                    } else if(item.Conteudo_status == '2'){
+                        elemA.classList.add('aluno_aprovada');
+                    } else{
+                        elemA.classList.add('aluno_reprovada');
+                    }
+
+                    const elemh1 = document.createElement('h1');
+                    elemh1.innerText = item.Conteudo_titulo;
+
+                    const elempA = document.createElement('p');
+                    elempA.classList.add('autor');
+                    elempA.innerText = item.Matéria_tipo;
+
+                    // const elemp = document.createElement('p');
+                    // elemp.classList.add('inicio_noticia');
+                    // elemp.innerText = item.Conteudo_link;
+
+
+
+
+                    elemA.appendChild(elemh1);
+                    elemA.appendChild(elempA);
+                    // elemA.appendChild(elemp);
+
+                    elemA.addEventListener('click', ()=>{
+                        atualizarModal(item);
+                    })
+
+                    div_suas_noticias.appendChild(elemA);
+
+
+                });
+
+           
+        
+    
+
+
+            } catch (error) {
+                console.log("erroooo");
+            }
+            
+        };
+        suasNoticias();
+
+        // criar noticias -> nivel 1
+        document.getElementById("formCriarNoticia").addEventListener("submit", async function (event) {
+            event.preventDefault();
+            // console.log("Script carregado!");
+
+            const formData = new FormData();
+            const idMateria_noticia = document.getElementById("materia_noticia").value;
+            const titulo_noticia = document.getElementById("titulo_noticia").value;
+            const autor_noticia = document.getElementById("autor_noticia").value;
+            const link_noticia = document.getElementById("link_noticia").value;
+
+            const img_noticia = document.getElementById("img_noticia").files[0];
+
+            if (!idMateria_noticia || !titulo_noticia || !autor_noticia || !link_noticia || !img_noticia) {
+                alert("Preencha todos os campos!");
+                return;
+            }
+            // console.log("O script de criação de notícia carregou corretamente!");
+            const id_user = localStorage.getItem("id_user");
+
+            formData.append("Conteudo_titulo", titulo_noticia);
+            formData.append("Conteudo_img", img_noticia);
+            formData.append("Conteudo_autor", autor_noticia);
+            formData.append("Conteudo_link", link_noticia);
+            formData.append("Conteudo_tipo", "1");
+            formData.append("Usuarios_idUsuarios", id_user);
+            formData.append("Materia_idMateria", idMateria_noticia);
+            formData.append("Conteudo_autor", autor_noticia);
+            formData.append("Conteudo_status", '1');
+
+            console.log("Enviando:", [...formData.entries()]);
+
+            try {
+                const resposta = await fetch("../backend/endpoint/Post/conteudo_post.php", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const respostaTexto = await resposta.text();
+                console.log("Resposta da API:", respostaTexto);
+
+                // Verifica se a resposta pode ser convertida para JSON
+                let result;
+                try {
+                    result = JSON.parse(respostaTexto);
+                } catch (erroJson) {
+                    console.error("Erro ao converter resposta JSON:", respostaTexto);
+                    alert("Erro na resposta da API!");
+                    return;
+                }
+
+                if (result.status === 'success') {
+                    // alert("Notícia cadastrada com sucesso!");
+                    document.getElementById("formCriarNoticia").reset();
+
+                    setTimeout(() => {
+                    // Fecha o modal atual (supondo que é o exampleModalToggle1)
+                    const modal1 = bootstrap.Modal.getInstance(document.getElementById("criarnoticia"));
+                    if (modal1) modal1.hide();
+
+                    // Abre o próximo modal de certo
+                    const modal2 = new bootstrap.Modal(document.getElementById("exampleModalToggle2"));
+                    modal2.show();
+                    
+                    document.querySelector('#mensagem_sucess').innerText = 'Usuário atualizado com sucesso!';
+                        setTimeout(() => {
+                            modal2.hide();
+
+                        }, 2500);
+                }, 500);
+
+                    suasNoticias();
+                } else {
+                    alert("Erro ao cadastrar a notícia! " + (result.message || ""));
+                }
+
+            } catch (erro) {
+                console.error("Erro ao conectar a API:", erro);
+                alert("Erro ao conectar à API!!");
+            }
+        });
+
+        // mostrar noticia -> nivel 1
+        function atualizarModal(livro) {
+            console.log("Livro selecionado:", livro); // Verifica no console se os dados estão corretos
+
+            document.getElementById("modalImg").src = "../backend/uploads/"+livro.Conteudo_img;
+            document.getElementById("modalTitulo").textContent = livro.Conteudo_titulo;
+            document.getElementById("modalDescricao").textContent = livro.Matéria_tipo;
+            // document.getElementById("modalAutor").textContent = livro.autor;
+
+            // console.log(livro.biblioteca, livro.link);
+
+            // const bt_bibloteca = document.querySelector("#bt_biblioteca");
+            const bt_compra = document.querySelector("#modalLinks a[href^='http']")
+
+            // if (livro.biblioteca === '1' || livro.biblioteca === 1) {
+            //     bt_bibloteca.classList.remove("ativo_biblioteca");
+            // } else {
+            //     bt_bibloteca.classList.add("ativo_biblioteca");
+            // }
+
+            if (livro.Conteudo_link) {
+                bt_compra.href = livro.Conteudo_link;
+            } else {
+                bt_compra.href = '#';
+            }
+        }
+
+        // editar perfil
+        document.getElementById('nome_userH1').addEventListener('click', ()=>{
+
+            // const id = this.getAttribute('data-id');
+            // console.log("id: "+ id);
+                        
+            const nivel_user = localStorage.getItem('Usuario_nivel');
+            const nome_user = localStorage.getItem('Usuario_nome');
+            const email_user = localStorage.getItem('Usuario_email');
+            const id_user = localStorage.getItem('id_user');
+            const imagem_user_antiga = localStorage.getItem('Usuario_img');
+            const senha_user= localStorage.getItem('Usuario_senha');
+
+            const img_form = document.getElementById('foto_user_editar');
+            img_form.src = "../backend/uploads/"+imagem_user_antiga;
+            
+            console.log("ID:", id_user);
+
+            document.getElementById('id_user_atualizar').value = id_user;
+            document.getElementById('nome_user_atualizar').value = nome_user;
+            document.getElementById('email_user_atualizar').value = email_user;
+            document.getElementById('nivel_user_antigo').value = nivel_user;
+
+            document.getElementById('imagem_antiga_user').value = imagem_user_antiga;
+            document.getElementById('senha_antiga').value = senha_user;
+
+
+            document.getElementById('atualizar_user').addEventListener("click", async () => {
+                console.log("Input ID user:", document.getElementById('id_user_atualizar'));
+
+                const id_user = document.getElementById('id_user_atualizar').value;
+
+                const nome_user = document.getElementById('nome_user_atualizar').value;
+                const email_user = document.getElementById('email_user_atualizar').value;
+                const senha_user = document.getElementById('senha_antiga').value;
+
+                const nivel_user = document.getElementById('nivel_user_antigo')?.value;
+
+                const imagemNova = document.getElementById("imagem_user").files[0];
+                const imagemAntiga = document.getElementById("imagem_antiga_user").value;
+
+                
+                const formData_User = new FormData();
+                formData_User.append('Usuario_nome', nome_user);
+                formData_User.append('Usuario_email', email_user);
+                formData_User.append('Usuario_senha', senha_user);
+                formData_User.append('Usuario_nivel', nivel_user);
+                formData_User.append('idUsuarios', id_user);
+
+                let imagem_atualizada;
+
+                if (imagemNova) {
+                    formData_User.append('imagem', imagemNova);
+                    imagem_atualizada = imagemNova;
+                } else {
+                    formData_User.append('imagem_antiga', imagemAntiga);
+                    imagem_atualizada = imagemAntiga;
+                }
+
+                
+        
+                
+
+            
+
+            try {
+
+                const response = await fetch('../backend/endpoint/Update/user_update.php', {
+                    method: 'POST',
+                    body: formData_User
+                });
+
+                let resultado = await response.json();
+                console.log(resultado);
+
+                alert('Usuário atualizado com sucesso!');
+                console.log("enviando dados para atualizar:" + formData_User);
+                localStorage.setItem('Usuario_nome', nome_user);
+                localStorage.setItem('Usuario_email', email_user);
+
+                if (resultado.Usuario_img) {
+                    localStorage.setItem('Usuario_img', resultado.Usuario_img);
+                }
+                location.reload();
+
+
+                // COLOCAR SEGUNDO MODAL COM ANIMACAO, OU PARA FECHAR AO TERMINAR
+
+
+
+            } catch (error) {
+                console.error('Erro ao atualizar:', error);
+                alert('Erro ao atualizar usuário.');
+            }
+        });
+
+        })
+
+        // fazer logout
+        document.getElementById("deslogar").addEventListener('click', () => {
+            window.location.href = 'login2.html';
+            localStorage.clear();
+        })
+    
+        const input = document.getElementById('img_noticia');
+        const input_user = document.getElementById('imagem_user');
+
+        const nomeArquivo = document.getElementById('nome-arquivo');
+        const nomeArquivo_user = document.getElementById('nome-arquivo_user');
+
+        input.addEventListener('change', function () {
+            if (input.files.length > 0) {
+            nomeArquivo.textContent = input.files[0].name;
+            } else {
+            nomeArquivo.textContent = 'Nenhum arquivo selecionado';
+            }
+        });
+        input_user.addEventListener('change', function () {
+            if (input_user.files.length > 0) {
+            nomeArquivo_user.textContent = input_user.files[0].name;
+            } else {
+            nomeArquivo_user.textContent = 'Nenhum arquivo selecionado';
+            }
+        });
+       
+    
+    </script>
+</body>
+</html>

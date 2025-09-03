@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisar Questao</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg h-100" style="background-color: var(--rosa);">
+            <div class="container-fluid">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <img src="./images/logo_InspireED.png" alt="" style="height: 35px;">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-5">
+                        <li class="nav-item">
+                            <a class="nav-link active text-light" aria-current="page" href="index.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" aria-current="page" href="#catalogosDivLivro">Livros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" aria-current="page" href="#mural">Mural</a>
+                        </li>
+
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Matérias
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=1">Artes</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=2">Biologia</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=3">Filosofia</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=4">Física</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=5">Geografia</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=6">História</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=7">Inglês</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=8">Matemática</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=9">Língua Portuguesa</a>
+                                </li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=10">Química</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=11">Sociologia</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- verificar userr -->
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="area_login.html">Login <i
+                                    class="bi bi-person-circle"></i></i></a>
+                        </li>
+
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="m-auto pt-3" style="width: 85%;">
+        <a href="./area_login.html" class="revisar_icone"><i class="bi bi-arrow-left-circle-fill" ></i></a>
+
+        <div class="d-flex justify-content-center w-100 ">
+
+
+            <div class="criar-livro-div w-100 mt-5">
+
+                <button id="criar_noticia" class="botoes fs-4 fw-normal" data-bs-target="#criarquestoes"
+                    data-bs-toggle="modal"><i class="bi bi-plus-lg"></i>
+                    Adicionar</button>
+
+
+                <h1 class="botoes fs-3 w-50 fw-normal m-auto mb-3" style="background-color: #d50577;">Questões em
+                    Catálogo</h1>
+
+                <div class=" p-2">
+
+                    <!-- div com os conteudos já no catalogo -->
+                    <div class="div_questoes revisar_div" id="div_livros_em_catalogo">
+
+
+
+
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <!-- modais -->
+
+        <!-- atualizar -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!-- título do modal -->
+                        <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+        
+                        <!-- form -->
+                        <form enctype="multipart/form-data">
+        
+                            <div class="mb-3">
+                                <label for="materia_questao" class="col-form-label">Matéria:</label>
+                                <select id="materia_questao" name="materia_questao" required class="form-select">
+                                    <option value="" class="selecionada" disabled selected>Selecione uma matéria</option>
+                                    <option value="1">Artes</option>
+                                    <option value="2">Biologia</option>
+                                    <option value="3">Filosofia</option>
+                                    <option value="4">Física</option>
+                                    <option value="5">Geografia</option>
+                                    <option value="6">História</option>
+                                    <option value="7">Inglês</option>
+                                    <option value="8">Língua Portuguesa</option>
+                                    <option value="9">Matemática</option>
+                                    <option value="10">Química</option>
+                                    <option value="11">Sociologia</option>
+                                </select>
+                            </div>
+        
+                            <div class="mb-3">
+                                <label for="titulo_questao" class="col-form-label">Vestibular:</label>
+                                <input type="text" class="form-control" name="titulo_questao" id="titulo_questao">
+                            </div>
+        
+                            <div class="mb-3">
+                                <label for="txt_questao" class="col-form-label">Questão:</label>
+                                <textarea name="txt_questao" id="txt_questao" class="form-control" rows="5" required></textarea>
+                            </div>
+        
+                            <div class="mb-3">
+                                <label for="alternativa_A" class="col-form-label">Alternativa A:</label>
+                                <input type="text" class="form-control" name="alternativa_A" id="alternativa_A">
+                            </div>
+        
+                            <div class="mb-3">
+                                <label for="alternativa_B" class="col-form-label">Alternativa B:</label>
+                                <input type="text" class="form-control" name="alternativa_B" id="alternativa_B">
+                            </div>
+        
+                            <div class="mb-3">
+                                <label for="alternativa_C" class="col-form-label">Alternativa C:</label>
+                                <input type="text" class="form-control" name="alternativa_C" id="alternativa_C">
+                            </div>
+        
+                            <div class="mb-3">
+                                <label for="alternativa_D" class="col-form-label">Alternativa D:</label>
+                                <input type="text" class="form-control" name="alternativa_D" id="alternativa_D">
+                            </div>
+        
+                            <div class="mt-3">
+                                <p>Alternativa Correta:</p>
+                                <div class="d-flex gap-3">
+                                    <label>
+                                        <input type="radio" name="alternativa_correta" value="1" required> A
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="alternativa_correta" value="2"> B
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="alternativa_correta" value="3"> C
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="alternativa_correta" value="4"> D
+                                    </label>
+                                </div>
+                            </div>
+                            
+        
+                            <div class="mb-3">
+                                <label for="explicacao_questao" class="col-form-label">Explicação:</label>
+                                <textarea name="explicacao_questao" id="explicacao_questao" class="form-control" rows="5" required></textarea>
+                            </div>
+        
+                            <input type="hidden" id="imagem-antiga" value="nome_da_imagem.jpg" style="display: none;">
+                            <input type="hidden" id="id_questao" value="id_questao" style="display: none;">
+        
+                            <div class="mb-3 d-flex align-items-center">
+                                <label for="img_questao" class="custom-file-upload">
+                                    Imagem <i class="bi bi-cloud-upload"></i>
+                                </label>
+                                <span id="nome-arquivo" class="ms-3">Nenhum arquivo selecionado</span>
+                                <input type="file" name="img_questao" id="img_questao" accept="image/*" />
+                            </div>
+        
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary bt_excluir_modal" id="excluir_questao">Deletar</button>
+                        <button type="button" class="btn btn-primary" id="atualizar_questao">Atualizar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- criar -->
+        <!-- form  -->
+        <div class="modal fade" id="criarquestoes" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header modal_atualiza">
+                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Adicionar Questão</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+          
+                <div class="modal-body modal_body_atualiza">
+                  <form id="formCriarQuestao" enctype="multipart/form-data">
+                    
+                    <div class="mb-2">
+                      <label for="materia_questao_criar" class="col-form-label">Matéria:</label>
+                      <select id="materia_questao_criar" name="materia_questao_criar" class="form-select" required>
+                        <option value="" class="selecionada" disabled selected>Selecione uma matéria</option>
+                        <option value="1">Artes</option>
+                        <option value="2">Biologia</option>
+                        <option value="3">Filosofia</option>
+                        <option value="4">Física</option>
+                        <option value="5">Geografia</option>
+                        <option value="6">História</option>
+                        <option value="7">Inglês</option>
+                        <option value="8">Língua Portuguesa</option>
+                        <option value="9">Matemática</option>
+                        <option value="10">Química</option>
+                        <option value="11">Sociologia</option>
+                      </select>
+                    </div>
+          
+                    <div class="mb-2">
+                      <label for="titulo_questao_criar" class="col-form-label">Vestibular:</label>
+                      <input type="text" name="titulo_questao_criar" id="titulo_questao_criar" class="form-control" required>
+                    </div>
+          
+                    <div class="mb-2">
+                      <label for="txt_questao_criar" class="col-form-label">Questão:</label>
+                      <textarea name="txt_questao_criar" id="txt_questao_criar" class="form-control" rows="5" required></textarea>
+                    </div>
+          
+                    <div class="mb-2">
+                      <label for="alternativa_A_criar" class="col-form-label">Alternativa A:</label>
+                      <input type="text" name="alternativa_A_criar" id="alternativa_A_criar" class="form-control" required>
+                    </div>
+          
+                    <div class="mb-2">
+                      <label for="alternativa_B_criar" class="col-form-label">Alternativa B:</label>
+                      <input type="text" name="alternativa_B_criar" id="alternativa_B_criar" class="form-control" required>
+                    </div>
+          
+                    <div class="mb-2">
+                      <label for="alternativa_C_criar" class="col-form-label">Alternativa C:</label>
+                      <input type="text" name="alternativa_C_criar" id="alternativa_C_criar" class="form-control" required>
+                    </div>
+          
+                    <div class="mb-2">
+                      <label for="alternativa_D_criar" class="col-form-label">Alternativa D:</label>
+                      <input type="text" name="alternativa_D_criar" id="alternativa_D_criar" class="form-control" required>
+                    </div>
+          
+                    <div class="mb-2">
+                      <p class="p_disponivel mb-1">Alternativa Correta:</p>
+                      <div class="d-flex gap-3">
+                        <label>
+                          <input type="radio" name="alternativa_correta_criar" value="1" required> A
+                        </label>
+                        <label>
+                          <input type="radio" name="alternativa_correta_criar" value="2"> B
+                        </label>
+                        <label>
+                          <input type="radio" name="alternativa_correta_criar" value="3"> C
+                        </label>
+                        <label>
+                          <input type="radio" name="alternativa_correta_criar" value="4"> D
+                        </label>
+                      </div>
+                    </div>
+          
+                    <div class="mb-2">
+                      <label for="explicacao_questao_criar" class="col-form-label">Explicação:</label>
+                      <textarea name="explicacao_questao_criar" id="explicacao_questao_criar" class="form-control" rows="5" required></textarea>
+                    </div>
+          
+                    <div class="mb-3 d-flex align-items-center mt-3">
+                      <label for="img_questao_criar" class="custom-file-upload">
+                        Imagem <i class="bi bi-cloud-upload"></i>
+                      </label>
+                      <span id="nome-arquivo_criar" class="ms-3">Nenhum arquivo selecionado</span>
+                      <input type="file" name="img_questao_criar" id="img_questao_criar" accept="image/*" />
+                    </div>
+          
+                    <div class="add_img_livro mt-2 d-flex justify-content-end" style="margin-bottom: 12px;">
+                      <button class="botoes fw-normal p-1 postar_bt" style="background-color: #a3e047;" type="submit">Postar</button>
+                    </div>
+                  </form>
+
+
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+      <!-- animaçao -->
+      <div class="modal fade" id="exampleModalToggle2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content text-center p-4 d-flex flex-column justify-content-center align-items-center" style="height: 50vh;">
+            <div class="checkmark-wrapper">
+              <svg viewBox="0 0 100 100">
+                <circle class="circle" cx="50" cy="50" r="45" />
+                <polyline class="checkmark" points="30,52 45,70 75,35" />
+              </svg>
+            </div>
+            <h5 class="modal-title" id="mensagem_sucess">Conteúdo registrado com sucesso!</h5>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <script>
+        
+        let prevScroll = window.scrollY;
+        const nav = document.querySelector("header");
+
+        window.addEventListener("scroll", () => {
+        const currentScroll = window.scrollY;
+        
+        if (currentScroll < prevScroll) {
+            // Rolando para cima
+            nav.style.top = "0";
+        } else {
+            // Rolando para baixo
+            nav.style.top = "-100px"; // ou a altura da nav, para esconder
+        }
+
+        prevScroll = currentScroll;
+        });
+
+        async function carregarQuestões() {
+            try {
+                let response = await fetch('../backend/endpoint/Get/atividade_getALL.php');
+                let data = await response.json();
+
+                let div_em_catalogo = document.getElementById('div_livros_em_catalogo');
+                div_em_catalogo.innerHTML = '';
+
+                function limitarTexto(texto, limite) {
+                    if (texto.length > limite) {
+                        return texto.slice(0, limite) + "...";
+                    } else {
+                        return texto;
+                    }
+                }
+
+                const nomes_materias = ['Null', 'Artes', 'Biologia', 'Filosofia', 'Física', 'Geografia', 'História', 'Inglês', 'Matemática', 'Português', 'Química', 'Sociologia'];
+
+                console.log(data);
+
+                data.forEach(item => {
+                    // Criar item do carrossel
+                    const elemA = document.createElement('a');
+                    elemA.classList.add('noticia_div_revisar', 'shadow', 'p-3', `card_${item.Matéria_idMatéria}`);
+
+                    // colocar o modal com os inputs para a edição, colocar 2 buttons editar e excluir.
+                    // ver design do modal
+                    // elemA.href = "";
+
+                    elemA.href = "#";
+                    elemA.setAttribute('data-bs-toggle', 'modal');
+                    elemA.setAttribute('data-bs-target', '#exampleModal');
+
+                    elemA.setAttribute('data-id', item.idAtividades); // Exemplo: ID
+                    elemA.setAttribute('data-titulo', item.Atividade_titulo);
+                    elemA.setAttribute('data-cont', item.Atividade_cont);
+                    elemA.setAttribute('data-explic', item.Atividade_exp);
+                    elemA.setAttribute('data-idMateria', item.Matéria_idMatéria);
+                    elemA.setAttribute('data-idUser', item.Usuarios_idUsuarios);
+                    elemA.setAttribute('data-imagem', item.Atividade_img);
+                    elemA.setAttribute('data-alternativaA', item.Atividade_alternativaA);
+                    elemA.setAttribute('data-alternativaB', item.Atividade_alternativaB);
+                    elemA.setAttribute('data-alternativaC', item.Atividade_alternativaC);
+                    elemA.setAttribute('data-alternativaD', item.Atividade_alternativaD);
+                    elemA.setAttribute('data-alternativaCorreta', item.Atividade_alternativa_correta);
+
+
+
+                    const elemh1 = document.createElement('h1');
+                    elemh1.innerText = item.Atividade_titulo;
+
+                    const elempA = document.createElement('p');
+                    elempA.classList.add('autor');
+                    elempA.innerText = nomes_materias[item.Matéria_idMatéria];
+
+                    const elemp = document.createElement('p');
+                    elemp.classList.add('inicio_noticia');
+                    // elemp.innerText = item.Atividade_cont;
+
+                    const textoOriginal = item.Atividade_cont;
+                    const textoCortado = limitarTexto(textoOriginal, 55);
+
+                    elemp.innerText = textoCortado;
+
+
+
+
+                    elemA.appendChild(elemh1);
+                    elemA.appendChild(elempA);
+                    elemA.appendChild(elemp);
+
+                    elemA.addEventListener('click', function () {
+                        const id = this.getAttribute('data-id');
+                        console.log("id: " + id);
+
+                        const titulo = this.getAttribute('data-titulo');
+                        const conteudo = this.getAttribute('data-cont');
+                        const explicacao = this.getAttribute('data-explic');
+                        const id_materia = this.getAttribute('data-idMateria');
+                        const id_user = this.getAttribute('data-idUser');
+                        const alternativaA = this.getAttribute('data-alternativaA');
+                        const alternativaB = this.getAttribute('data-alternativaB');
+                        const alternativaC = this.getAttribute('data-alternativaC');
+                        const alternativaD = this.getAttribute('data-alternativaD');
+                        const alternativaCorreta = this.getAttribute('data-alternativaCorreta');
+
+                        const imagemAntiga = this.getAttribute('data-imagem');
+                        document.getElementById('imagem-antiga').value = imagemAntiga;
+
+                        // const id_livro = this.getAttribute('data-id');
+
+
+                        console.log("ID:", id);
+                        console.log("Imagem antiga:", imagemAntiga);
+
+                        // colocar no forms e a imgaem antiga tbm
+                        document.getElementById('id_questao').value = id;
+                        document.getElementById('exampleModalLabel').innerText = titulo;
+                        document.getElementById('titulo_questao').value = titulo;
+                        document.getElementById('txt_questao').value = conteudo;
+                        document.getElementById('explicacao_questao').value = explicacao;
+
+                        document.getElementById('alternativa_A').value = alternativaA;
+                        document.getElementById('alternativa_B').value = alternativaB;
+                        document.getElementById('alternativa_C').value = alternativaC;
+                        document.getElementById('alternativa_D').value = alternativaD;
+                        // document.getElementById('alternativa_correta').value = alternativaCorreta;
+
+                        // colocar no forms
+                        document.getElementById('imagem-antiga').value = imagemAntiga;
+
+
+                    });
+
+                    div_em_catalogo.appendChild(elemA);
+
+                });
+
+            } catch (error) {
+                console.error('Erro ao carregar notícias:', error);
+            }
+        }
+
+        carregarQuestões()
+
+        document.getElementById('atualizar_questao').addEventListener("click", async () => {
+            console.log("Input ID livro:", document.getElementById('id_questao'));
+
+            const idAtividades = document.getElementById('id_questao').value;
+            const idMateria_questao = document.getElementById("materia_questao").value;
+            const titulo_questao = document.getElementById("titulo_questao").value;
+            const conteudo_questao = document.getElementById("txt_questao").value;
+
+            const alternativa_A = document.getElementById("alternativa_A").value;
+            const alternativa_B = document.getElementById("alternativa_B").value;
+            const alternativa_C = document.getElementById("alternativa_C").value;
+            const alternativa_D = document.getElementById("alternativa_D").value;
+
+            const alternativa_correta = document.querySelector('input[name="alternativa_correta"]:checked')?.value;
+
+            const explicacao_questao = document.getElementById("explicacao_questao").value;
+            const img_questao = document.getElementById("img_questao").files[0];
+
+            const id_user = localStorage.getItem('id_user');
+            // console.log('id pelo localStorange', id_user);
+
+
+            const formData_Questao = new FormData();
+            formData_Questao.append('idAtividades', idAtividades);
+            formData_Questao.append("Atividade_titulo", titulo_questao);
+            formData_Questao.append("Atividade_cont", conteudo_questao);
+            formData_Questao.append("Atividade_exp", explicacao_questao);
+            formData_Questao.append("Atividade_img", img_questao);
+            formData_Questao.append("Matéria_idMatéria", idMateria_questao);
+            formData_Questao.append("Usuarios_idUsuarios", id_user);
+            formData_Questao.append("Atividade_alternativaA", alternativa_A);
+            formData_Questao.append("Atividade_alternativaB", alternativa_B);
+            formData_Questao.append("Atividade_alternativaC", alternativa_C);
+            formData_Questao.append("Atividade_alternativaD", alternativa_D);
+            formData_Questao.append("Atividade_alternativa_correta", alternativa_correta);
+
+            const imagemNova = document.getElementById("img_questao").files[0];
+            const imagemAntiga = document.getElementById("imagem-antiga").value;
+
+            if (imagemNova) {
+                formData_Questao.append('imagem', imagemNova);
+            } else {
+                formData_Questao.append('imagem_antiga', imagemAntiga);
+            }
+
+            console.log("Enviando dados:", [...formData_Questao.entries()]);
+
+            try {
+
+                const response = await fetch('../backend/endpoint/Update/atividade_update.php', {
+                    method: 'POST',
+                    body: formData_Questao
+                });
+
+                let resultado = await response.json();
+                console.log(resultado);
+                carregarQuestões();
+
+                console.log("enviando dados para atualizar:" + formData_Questao);
+
+                // COLOCAR SEGUNDO MODAL COM ANIMACAO, OU PARA FECHAR AO TERMINAR
+                setTimeout(() => {
+                    // Fecha o modal atual (supondo que é o exampleModalToggle1)
+                    const modal1 = bootstrap.Modal.getInstance(document.getElementById("exampleModal"));
+                    if (modal1) modal1.hide();
+
+                    // Abre o próximo modal de certo
+                    const modal2 = new bootstrap.Modal(document.getElementById("exampleModalToggle2"));
+                    modal2.show();
+                    
+                    document.querySelector('#mensagem_sucess').innerText = 'Questão atualizada com sucesso!';
+                        setTimeout(() => {
+                            modal2.hide();
+
+                        }, 2500);
+                }, 500);
+
+
+            } catch (error) {
+                console.error('Erro ao atualizar:', error);
+                alert('Erro ao atualizar questão.');
+            }
+        })
+
+        document.getElementById("formCriarQuestao").addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const formData = new FormData();
+            const idMateria_questao = document.getElementById("materia_questao_criar").value;
+            const titulo_questao = document.getElementById("titulo_questao_criar").value;
+            const conteudo_questao = document.getElementById("txt_questao_criar").value;
+
+            const alternativa_A = document.getElementById("alternativa_A_criar").value;
+            const alternativa_B = document.getElementById("alternativa_B_criar").value;
+            const alternativa_C = document.getElementById("alternativa_C_criar").value;
+            const alternativa_D = document.getElementById("alternativa_D_criar").value;
+
+            const alternativa_correta = document.querySelector('input[name="alternativa_correta_criar"]:checked')?.value;
+
+            const explicacao_questao = document.getElementById("explicacao_questao_criar").value;
+            const img_questao = document.getElementById("img_questao_criar").files[0];
+
+            const id_user = localStorage.getItem('id_user');
+            // console.log('id pelo localStorange', id_user);
+
+            if (!idMateria_questao || !titulo_questao || !conteudo_questao || !explicacao_questao || !alternativa_A || !alternativa_B || !alternativa_C || !alternativa_D || !alternativa_correta) {
+                alert("Preencha todos os campos!");
+                return;
+            }
+
+            formData.append("Atividade_titulo", titulo_questao);
+            formData.append("Atividade_cont", conteudo_questao);
+            formData.append("Atividade_exp", explicacao_questao);
+            formData.append("Atividade_img", img_questao);
+            formData.append("Matéria_idMatéria", idMateria_questao);
+            formData.append("Usuarios_idUsuarios", id_user);
+            formData.append("Atividade_alternativaA", alternativa_A);
+            formData.append("Atividade_alternativaB", alternativa_B);
+            formData.append("Atividade_alternativaC", alternativa_C);
+            formData.append("Atividade_alternativaD", alternativa_D);
+            formData.append("Atividade_alternativa_correta", alternativa_correta);
+
+
+            console.log("Enviando dados:", [...formData.entries()]);
+
+            try {
+                const resposta = await fetch("../backend/endpoint/Post/atividade_post.php", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const respostaTexto = await resposta.text();
+                console.log("Resposta da API:", respostaTexto);
+
+                // Verifica se a resposta pode ser convertida para JSON
+                let result;
+                try {
+                    result = JSON.parse(respostaTexto);
+                } catch (erroJson) {
+                    console.error("Erro ao converter resposta JSON:", respostaTexto);
+                    alert("Erro na resposta da API!");
+                    return;
+                }
+
+                if (result.status === 'success') {
+                    
+                    document.getElementById("formCriarQuestao").reset();
+                    carregarQuestões();
+
+                    setTimeout(() => {
+                    // Fecha o modal atual (supondo que é o exampleModalToggle1)
+                    const modal1 = bootstrap.Modal.getInstance(document.getElementById("criarquestoes"));
+                    if (modal1) modal1.hide();
+
+                    // Abre o próximo modal de certo
+                    const modal2 = new bootstrap.Modal(document.getElementById("exampleModalToggle2"));
+                    modal2.show();
+                    
+                    document.querySelector('#mensagem_sucess').innerText = 'Questão cadastrada com sucesso!';
+                        setTimeout(() => {
+                            modal2.hide();
+
+                        }, 2500);
+                }, 500);
+                } else {
+                    alert("Erro ao cadastrar a questão! " + (result.message || ""));
+                }
+
+            } catch (erro) {
+                console.error("Erro ao conectar a API:", erro);
+                alert("Erro ao conectar à API!!");
+            }
+        });
+
+        document.getElementById('excluir_questao').addEventListener('click', async () =>{
+            const idAtividades = document.getElementById('id_questao').value;
+            console.log("idCatalogos:", idAtividades)
+
+            try {
+                const response = await fetch('../backend/endpoint/Delete/atividade_delete.php', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        idAtividades: idAtividades
+                    })
+                });
+
+                const textResponse = await response.text(); // Recebe a resposta como texto
+                console.log(textResponse); // Verifique o que está sendo retornado
+
+                let resultado;
+
+                // let resultado = await response.json();
+                console.log(resultado);
+
+                carregarQuestões();
+                
+                setTimeout(() => {
+                    // Fecha o modal atual (supondo que é o exampleModalToggle1)
+                    const modal1 = bootstrap.Modal.getInstance(document.getElementById("exampleModal"));
+                    if (modal1) modal1.hide();
+
+                    // Abre o próximo modal de certo
+                    const modal2 = new bootstrap.Modal(document.getElementById("exampleModalToggle2"));
+                    modal2.show();
+                    
+                    document.querySelector('#mensagem_sucess').innerText = 'Questão deletada com sucesso!';
+                        setTimeout(() => {
+                            modal2.hide();
+
+                        }, 2500);
+                }, 500);
+
+                
+            } catch (error) {
+                console.log("Erro na conexão!");
+                console.log(error);
+            }
+        })
+        
+  
+        const input = document.getElementById('img_questao');
+        const input_criar = document.getElementById('img_questao_criar');
+        const nomeArquivo = document.getElementById('nome-arquivo');
+        const nomeArquivo_criar = document.getElementById('nome-arquivo_criar');
+
+        input.addEventListener('change', function () {
+            if (input.files.length > 0) {
+            nomeArquivo.textContent = input.files[0].name;
+            } else {
+            nomeArquivo.textContent = 'Nenhum arquivo selecionado';
+            }
+        });
+        input_criar.addEventListener('change', function () {
+            if (input_criar.files.length > 0) {
+            nomeArquivo_criar.textContent = input_criar.files[0].name;
+            } else {
+            nomeArquivo_criar.textContent = 'Nenhum arquivo selecionado';
+            }
+        });
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

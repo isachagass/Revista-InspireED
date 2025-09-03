@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>InspireED - História</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg h-100" style="background-color: var(--rosa);">
+            <div class="container-fluid">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <img src="./images/logo_InspireED.png" alt="" style="height: 35px;">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-5">
+                        <li class="nav-item">
+                            <a class="nav-link active text-light" aria-current="page" href="index.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" aria-current="page" href="#catalogosDivLivro">Livros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" aria-current="page" href="#mural">Mural</a>
+                        </li>
+
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Matérias
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=1">Artes</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=2">Biologia</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=3">Filosofia</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=4">Física</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=5">Geografia</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=6">História</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=7">Inglês</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=8">Matemática</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=9">Língua Portuguesa</a>
+                                </li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=10">Química</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=11">Sociologia</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- verificar userr -->
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="area_login.html">Login <i
+                                    class="bi bi-person-circle"></i></i></a>
+                        </li>
+
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <main class="w-75 m-auto pt-3 p-2">
+
+        <!-- <a href="./index.html#materias" id="voltar_index"><i class="bi bi-arrow-left-circle-fill"></i></a> -->
+
+        <h1 class="text-end mt-5 cookie-regular" id="materia"></h1>
+
+        <div class="conteudos_materia d-flex m-3 mt-0">
+            <div class="w-25 m-3">
+                <img src="" alt="" id="capa_materia" class="rounded">
+            </div>
+
+            <div class="w-75 btn_conteudos mt-3" id="titulo_conteudo_materia"></div>
+        </div>
+
+        <div class=" mt-5">
+            <h1>Questões</h1>
+            <div class="btn_conteudos questoes mt-3" id="titulo_questoes_materia" style="width: 100%;"></div>
+
+        </div>
+
+
+
+        <!-- modal de questões -->
+
+        <!-- modal 1 -->
+        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+            tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 fw-semibold" id="exampleModalToggleLabel">Titulo da questao</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="id_livro" style="display: none;"></p>
+
+                        <p id="cont_questao">pergunta</p>
+
+                        <ol id="alternativas" class="letras-parenteses">
+                            <li id="alternativa_A" class="form-control mb-3 escolha">a</li>
+                            <li id="alternativa_B" class="form-control mb-3">b</li>
+                            <li id="alternativa_C" class="form-control mb-3">c</li>
+                            <li id="alternativa_D" class="form-control mb-3">d</li>
+                        </ol>
+                        <div id="alternativa_correta" style="display: none;"></div>
+
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" id="verificarResposta">Verificar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal 2 -->
+        <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+            tabindex="-1">
+            <div class="modal-dialog modal-lg-exp modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 fw-semibold" id="exampleModalToggleLabel2">Alternativa Correta: A
+                        </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <h4 class="fw-semibold mb-2">Explicação</h4>
+                        <p id="explicacao">Explicacao: Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                            Asperiores nemo amet saepe pariatur molestias doloremque perferendis porro, laudantium quas
+                            placeat officia vitae quis necessitatibus iusto mollitia, autem aut! Blanditiis, aliquam?
+                        </p>
+
+
+                    </div>
+                    <div class="modal-footer" id="bt_expl_questao">
+                        <button class="btn btn-primary" data-bs-dismiss="modal"
+                            data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+                        Voltar para a questão
+                    </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </main>
+
+
+
+    <script>
+        
+        let prevScroll = window.scrollY;
+        const nav = document.querySelector("header");
+
+        window.addEventListener("scroll", () => {
+        const currentScroll = window.scrollY;
+        
+        if (currentScroll < prevScroll) {
+            // Rolando para cima
+            nav.style.top = "0";
+        } else {
+            // Rolando para baixo
+            nav.style.top = "-100px"; // ou a altura da nav, para esconder
+        }
+
+        prevScroll = currentScroll;
+        });
+
+        function soltarConfetesAoLadoDoElemento(elemento) {
+            const rect = elemento.getBoundingClientRect();
+            const x = (rect.left + rect.width / 2) / window.innerWidth;
+            const y = (rect.top + rect.height / 2) / window.innerHeight;
+
+            const duration = 1500;
+            const end = Date.now() + duration;
+
+            (function frame() {
+                confetti({
+                    particleCount: 2,
+                    angle: 60,
+                    spread: 80,
+                    origin: { x: x - 0.05, y: y },
+                    colors: ['#ba01ff', '#228dff', '#b6ff00'],
+                });
+                confetti({
+                    particleCount: 2,
+                    angle: 120,
+                    spread: 80,
+                    origin: { x: x + 0.05, y: y },
+                    colors: ['#ff0092', '#ffca1b', '#f96a00'],
+                });
+
+                const canvas = document.querySelector("canvas");
+                if (canvas) {
+                canvas.style.zIndex = "999999";
+                canvas.style.position = "fixed";
+                canvas.style.top = "0";
+                canvas.style.left = "0";
+                canvas.style.pointerEvents = "none";
+                }
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            })();
+        }
+
+
+        async function carregarConteudoMateria() {
+
+            const urlParametro = new URLSearchParams(window.location.search);
+            const materia = urlParametro.get("materia");
+
+            const capas = ['null', 'artes_capa.png', 'biologia_capa.png', 'filosofia_capa.png', 'física_capa.png', 'geografia_capa.png', 'historia_capa.png', 'ingles_capa.png', 'matemática_capa.png', 'portugues_capa.png', 'quimica_capa.png', 'sociologia_capa.png'];
+
+            const nomes_materias = ['Null', 'Artes', 'Biologia', 'Filosofia', 'Física', 'Geografia', 'História', 'Inglês', 'Matemática', 'Português', 'Química', 'Sociologia'];
+
+            // fazer conexao com o banco de dados para verificar se tem conteudo ou questao cadastrada com tal materia
+            // fazer os elem em loop, para fazer mais de um quando tiver
+            console.log("materia:" + materia);
+
+            try {
+                let response = await fetch(`../backend/endpoint/Get/conteudo_cada_materia.php?materia=${materia}`);
+                let data = await response.json();
+                // continuar
+                console.log(data);
+                let tituloMateria = document.getElementById('materia');
+                let capa = document.getElementById("capa_materia");
+
+                let divConteudos = document.getElementById("titulo_conteudo_materia");
+                divConteudos.innerHTML = '';
+
+                tituloMateria.innerText = nomes_materias[materia];
+                capa.src = "./images/capas materias/" + capas[materia];
+
+                data.forEach(item => {
+                    let elemA = document.createElement("a");
+                    elemA.href = "./conteudo_materia.html?id=" + item.idConteudos + "&materia=" + materia;
+                    elemA.classList.add("botoes","bt_cont", `materia_${materia}`);
+                    // colocar class da cor de cada materia
+                    elemA.innerText = item.Conteudo_titulo;
+
+                    divConteudos.appendChild(elemA);
+
+                });
+
+                // questoes:
+                let response_q = await fetch(`../backend/endpoint/Get/atividade_cada_materia.php?materia=${materia}`);
+                let data_q = await response_q.json();
+
+                console.log(data_q);
+
+                let divquestoes = document.getElementById("titulo_questoes_materia");
+                divquestoes.innerHTML = '';
+
+                data_q.forEach(item => {
+                    let elemQ = document.createElement("button");
+                    elemQ.href = "#";
+
+                    elemQ.setAttribute('data-bs-target', '#exampleModalToggle');
+                    elemQ.setAttribute('data-bs-toggle', 'modal');
+
+                    elemQ.setAttribute('data-id_questao', item.idAtividades);
+                    elemQ.setAttribute('data-titulo', item.Atividade_titulo);
+                    elemQ.setAttribute('data-cont', item.Atividade_cont);
+                    elemQ.setAttribute('data-exp', item.Atividade_exp);
+                    elemQ.setAttribute('data-imagem', item.Atividade_img);
+                    elemQ.setAttribute('data-id_materia', item.Matéria_idMatéria);
+                    elemQ.setAttribute('data-id_user', item.Usuarios_idUsuarios);
+                    elemQ.setAttribute('data-alternativaA', item.Atividade_alternativaA);
+                    elemQ.setAttribute('data-alternativaB', item.Atividade_alternativaB);
+                    elemQ.setAttribute('data-alternativaC', item.Atividade_alternativaC);
+                    elemQ.setAttribute('data-alternativaD', item.Atividade_alternativaD);
+                    elemQ.setAttribute('data-alternativa_correta', item.Atividade_alternativa_correta);
+
+                    elemQ.classList.add("botoes", "fs-4", `questao_${materia}`, 'bt_cont');
+                    elemQ.innerText = item.Atividade_titulo;
+
+
+                    elemQ.addEventListener('click', function () {
+                        const id = this.getAttribute('data-id_questao');
+                        console.log("id: " + id);
+
+                        const titulo = this.getAttribute('data-titulo');
+                        const cont = this.getAttribute('data-cont');
+                        const exp = this.getAttribute('data-exp');
+                        const id_materia = this.getAttribute('data-id_materia');
+                        const id_user = this.getAttribute('data-id_user');
+
+                        const alternativaA = this.getAttribute('data-alternativaA');
+                        const alternativaB = this.getAttribute('data-alternativaB');
+                        const alternativaC = this.getAttribute('data-alternativaC');
+                        const alternativaD = this.getAttribute('data-alternativaD');
+                        const alternativa_correta = this.getAttribute('data-alternativa_correta');
+
+                        const imagem = this.getAttribute('data-imagem');
+                        const correta = [0, 'A', 'B', 'C', 'D'];
+
+
+                        console.log("ID:", id);
+                        console.log("Imagem antiga:", imagem);
+
+                        document.getElementById('id_livro').innerText = id;
+                        document.getElementById('exampleModalToggleLabel').innerText = titulo;
+                        document.getElementById('cont_questao').innerText = cont;
+                        document.getElementById('alternativa_A').innerText = alternativaA;
+                        document.getElementById('alternativa_B').innerText = alternativaB;
+                        document.getElementById('alternativa_C').innerText = alternativaC
+                        document.getElementById('alternativa_D').innerText = alternativaD;
+                        document.getElementById('alternativa_correta').innerText = alternativa_correta;
+
+                        // Remover classes anteriores de alternativas
+                        ["A", "B", "C", "D"].forEach(letra => {
+                            const alt = document.getElementById(`alternativa_${letra}`);
+                            alt.classList.remove("escolha", "correta", "errada");
+                        });
+
+                        // Seleção de alternativa
+                        const listaAlternativas = document.querySelectorAll("#alternativas li");
+                        listaAlternativas.forEach(alternativa => {
+                            alternativa.onclick = () => {
+                                listaAlternativas.forEach(el => el.classList.remove("escolha")); // Remove dos outros
+                                alternativa.classList.add("escolha"); // Adiciona na clicada
+                            };
+                        });
+
+                        document.getElementById('explicacao').innerText = exp;
+                        document.getElementById('exampleModalToggleLabel2').innerText = `Alternativa Correta: ${correta[alternativa_correta]}`;
+
+                        // tentar enteder apartir daqui, esta dando erro ao verficar
+                        // tentar alterar o banco de dados talvez;
+                        
+
+                        // Verificar a resposta após clique no botão "Verificar"
+                        
+                    });
+                    divquestoes.appendChild(elemQ);
+                });
+
+                
+
+            } catch (error) {
+                console.error('Erro ao carregar conteudo da materia:', error);
+            }
+        }
+        
+        document.addEventListener("DOMContentLoaded", function () {    
+            document.querySelector('#verificarResposta').addEventListener("click", () => {
+                        let acertou = false;
+                        const correta = [0, 'A', 'B', 'C', 'D'];
+                        const alternativaSelecionada = document.querySelector("li.escolha");
+                        const alternativa_correta = document.getElementById('alternativa_correta').innerText;
+
+                        console.log("alternativaaa"+alternativa_correta);
+
+
+
+                        if (!alternativaSelecionada) return alert("Escolha uma alternativa antes de verificar!");
+
+                        const id_AlternativaSelecionada = alternativaSelecionada.id;
+                        console.log("Alternativa Selecionada: ", id_AlternativaSelecionada);
+                        console.log('Alternativa Correta: ', correta[alternativa_correta]);
+
+                        // Convertendo o número da alternativa correta para a string de id correspondente
+                        const idAlternativaCorreta = 'alternativa_' + correta[alternativa_correta];
+                        console.log('idCorreto:' + idAlternativaCorreta);
+
+                        if (id_AlternativaSelecionada === idAlternativaCorreta) {
+                            alternativaSelecionada.classList.add("correta");
+                            acertou = true;
+
+                            soltarConfetesAoLadoDoElemento(alternativaSelecionada);
+
+
+                        } else {
+                            acertou = false;
+                            alternativaSelecionada.classList.add("errada");
+                        }
+
+                        // Esperar 1.5s antes de abrir explicação
+
+                       
+
+                        // Espera 1.5 segundos para abrir o modal de explicação
+                        setTimeout(() => {
+                        const modal1 = bootstrap.Modal.getInstance(document.getElementById('exampleModalToggle'));
+                        modal1.hide();
+
+                        const modal2 = new bootstrap.Modal(document.getElementById('exampleModalToggle2'));
+                        modal2.show();
+                    }, acertou ? 3500 : 1000);
+                    });
+            });
+
+        carregarConteudoMateria();
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

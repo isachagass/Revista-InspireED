@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Imagens</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/forca.css">
+    <link rel="stylesheet" href="./css/memoria.css">
+    <link rel="stylesheet" href="./css/palavra.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="navbar navbar-expand-lg h-100" style="background-color: var(--rosa);">
+            <div class="container-fluid">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <img src="./images/logo_InspireED.png" alt="" style="height: 35px;">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-5">
+                        <li class="nav-item">
+                            <a class="nav-link active text-light" aria-current="page" href="index.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" aria-current="page" href="#catalogosDivLivro">Livros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" aria-current="page" href="#mural">Mural</a>
+                        </li>
+
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Matérias
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=1">Artes</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=2">Biologia</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=3">Filosofia</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=4">Física</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=5">Geografia</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=6">História</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=7">Inglês</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=8">Matemática</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=9">Língua Portuguesa</a>
+                                </li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=10">Química</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=11">Sociologia</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- verificar userr -->
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="area_login.html">Login <i
+                                    class="bi bi-person-circle"></i></i></a>
+                        </li>
+
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-5">
+
+        <!-- carrossel de noticias -->
+        <div id="carouselGrande" class="carousel slide mt-5 mb-3">
+
+            <div class="carousel-indicators" id="parteBaixoCarrosel">
+                <button type="button" data-bs-target="#carouselGrande" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselGrande" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselGrande" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+
+
+            <div class="carousel-inner" id="caroselDivNoticia">
+                <div class="carousel-item active">
+                    <img src="images/capas materias/capa conteudo ingles.png" class="d-block rounded"
+                        alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>First slide label</h5>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/alunos.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Second slide label</h5>
+                        <!-- <p>Some representative placeholder content for the second slide.</p> -->
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/alunos.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Third slide label</h5>
+                        <!-- <p>Some representative placeholder content for the third slide.</p> -->
+                    </div>
+                </div>
+            </div>
+            <button id="botoesV" class="carousel-control-prev" type="button" data-bs-target="#carouselGrande"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button id="botoesN" class="carousel-control-next" type="button" data-bs-target="#carouselGrande"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <!-- catalogo de livros -->
+        <div id="catalogosDivLivro" class="d-flex w-75 m-auto mt-5 mb-5 rounded"
+            style="background-color: var(--cinza);">
+            <div id="btCatalogo" class="w-25 mr-3 d-flex flex-column align-items-center
+            justify-content-center ms-5">
+                <h1 class="text-center fs-2">Catálogos</h1>
+                <button class="btn btn-lg botoes fw-normal border-0 shadow" data-bs-target="#exampleModalToggle"
+                    data-bs-toggle="modal" onclick="carregarTodosLivros()">Veja Todos os Livros</button>
+            </div>
+            <div id="LivrosCatalogo" class="w-75 d-flex align-items-center justify-content-center">
+                <div class="container w-75 p-3 m-4" style="background-color: white;">
+                    <div id="carouselLivros" class="carousel slide">
+
+                        <div class="carousel-inner" id="carouselContent"></div>
+
+
+                        <button class="carousel-control-prev" id="bt-prev-livros" type="button"
+                            data-bs-target="#carouselLivros" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" id="bt-next-livros" type="button"
+                            data-bs-target="#carouselLivros" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- --------------------------------------------- -->
+        <!-- Modal do conteudo de um livro -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header cadaLivro border-0">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex justify-content-evenly p-3 border-0">
+                        <img src="" alt="Capa do livro" id="modalImg" style="height: 50vh; width: auto;">
+                        <div class="modalCadaLivroTxt w-50">
+                            <h2 class="text-center fs-3 fw-semibold" id="modalTitulo"></h2>
+                            <p class="text-center" id="modalAutor" style="color: gray"></p>
+                            <p class="text-center" id="modalDescricao"></p>
+                            <div class="disponivelBt">
+                                <p class="text-center fw-semibold fs-5 mb-0">Disponível em:</p>
+                                <div class="d-flex justify-content-center" id="modalLinks">
+                                    <a class="botoes border-0 p-2 fw-normal m-2 text-center"
+                                        id="bt_biblioteca">Biblioteca
+                                        Escolar</a>
+                                    <a href="https://www.amazon.com.br/%C3%81gua-funda-Ruth-Guimar%C3%A3es/dp/8573267011"
+                                        target="_blank" class="botoes border-0 p-2 fw-normal m-2 text-center">Compre
+                                        aqui</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- modal de todos os livros juntos -->
+        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+            tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-xl border-0">
+                <div class="modal-content border-0" style="background-color: transparent !important;">
+                    <div class="modal-header border-0">
+                        <button type="button" class="btn-close btn-light" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body border-0">
+                        <div id="modalLivros" class="m-auto">
+                            <button id="prev-btn">
+                                <i class="bi bi-arrow-left-circle-fill"></i>
+                            </button>
+                            <!-- Book -->
+                            <div id="book" class="book"></div>
+                            <button id="next-btn">
+                                <i class="bi bi-arrow-right-circle-fill"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- area de matérias carrossel -->
+        <div id="materias" class="w-75 m-auto p-4 rounded" style="background-color: var(--cinza);">
+            <h1 class="botoes fw-normal fs-2 border-0 shadow">Matérias</h1>
+            <div id="MateriasCatalogo" class="w-100 d-flex align-items-center justify-content-center">
+                <div class="container w-100 p-3 m-4" style="background-color: white;">
+                    <div id="carouselMaterias" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row" id="imagensCartalogo">
+                                    <a href="./materia_escolher.html?materia=1"
+                                        class="col d-flex align-items-center justify-content-center w-100 m-2">
+                                        <img src="../frontend/images/capas materias/artes_capa.png" class="img-fluid">
+                                    </a>
+                                    <a href="./materia_escolher.html?materia=2"
+                                        class="col d-flex align-items-center justify-content-center w-100 m-2">
+                                        <img src="../frontend/images/capas materias/biologia_capa.png"
+                                            class="img-fluid">
+
+                                    </a>
+                                    <a href="./materia_escolher.html?materia=3"
+                                        class="col d-flex align-items-center justify-content-center w-100 m-2">
+                                        <img src="../frontend/images/capas materias/filosofia_capa.png"
+                                            class="img-fluid">
+
+                                    </a>
+                                    <!-- fisica -->
+                                    <a href="./materia_escolher.html?materia=4"
+                                        class="col d-flex align-items-center justify-content-center w-100 m-2">
+                                        <img src="../frontend/images/capas materias/física_capa.png" class="img-fluid">
+
+                                    </a>
+
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row" id="imagensCartalogo">
+                                    <a href="./materia_escolher.html?materia=5"
+                                        class="col d-flex align-items-center justify-content-center w-100 m-2">
+                                        <img src="../frontend/images/capas materias/geografia_capa.png"
+                                            class="img-fluid">
+
+                                    </a>
+                                    <a href="./materia_escolher.html?materia=6"
+                                        class="col d-flex align-items-center justify-content-center w-100 m-2">
+                                        <img src="../frontend/images/capas materias/historia_capa.png"
+                                            class="img-fluid">
+
+                                    </a>
+                                    <a href="./materia_escolher.html?materia=7"
+                                        class="col d-flex align-items-center justify-content-center w-100 m-2">
+                                        <img src="../frontend/images/capas materias/ingles_capa.png" class="img-fluid">
+
+                                    </a>
+                                    <a href="./materia_escolher.html?materia=8"
+                                        class="col d-flex align-items-center justify-content-center w-100 m-2">
+                                        <img src="../frontend/images/capas materias/portugues_capa.png"
+                                            class="img-fluid">
+
+                                    </a>
+
+
+
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row" id="imagensCartalogo">
+                                    <!-- matematica -->
+                                    <a href="./materia_escolher.html?materia=9"
+                                        class="col d-flex align-items-center justify-content-center w-100 m-2">
+                                        <img src="../frontend/images/capas materias/matemática_capa.png"
+                                            class="img-fluid">
+
+                                    </a>
+                                    <a href="./materia_escolher.html?materia=10"
+                                        class="col d-flex align-items-center justify-content-center w-100 m-2">
+                                        <img src="../frontend/images/capas materias/quimica_capa.png" class="img-fluid">
+
+                                    </a>
+                                    <a href="./materia_escolher.html?materia=11"
+                                        class="col d-flex align-items-center justify-content-center w-100 m-2">
+                                        <img src="../frontend/images/capas materias/sociologia_capa.png"
+                                            class="img-fluid">
+
+                                    </a>
+                                    <div class="col d-flex align-items-center justify-content-center w-100 m-2">
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <button class="carousel-control-prev btprev-materia" id="bt-prev-materias" type="button"
+                            data-bs-target="#carouselMaterias" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next btnext-materia" id="bt-next-materias" type="button"
+                            data-bs-target="#carouselMaterias" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- mural -->
+        <div id="mural">
+            <div class="board" id="board" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <img src="../frontend/images/letras_mural.png" alt="" id="img_Mural">
+
+                <!-- Cards serão inseridos aqui via JS -->
+            </div>
+        </div>
+
+        <!-- jogosss -->
+
+        <div id="jogos" class=" w-75 m-auto mt-5 mb-5 rounded">
+
+
+            
+            <!-- forca -->
+            <div class="w-100 m-auto p-2 rounded" style="background-color: #eeeeee;">
+            <h1 class="botoes fw-normal fs-2 border-0 shadow mb-3 mt-3 ms-4" id="jogo_titulo">Jogos</h1>
+    
+                <div class="container mt-5">
+                    <div class="d-flex justify-content-evenly w-75">
+                        <div id="imagem"></div>
+                        <div id="categoria">
+                            <!-- CATEGORIA -->
+                        </div>
+                    </div>
+                    <div id="palavra-secreta">
+                      
+                    </div>
+    
+                    <div id="teclado" class="mb-5">
+                        <div class="teclas">
+                            <button id="tecla-A" onclick="verificaLetraEscolhida('A')">A</button>
+                            <button id="tecla-B" onclick="verificaLetraEscolhida('B')">B</button>
+                            <button id="tecla-C" onclick="verificaLetraEscolhida('C')">C</button>
+                            <button id="tecla-D" onclick="verificaLetraEscolhida('D')">D</button>
+                            <button id="tecla-E" onclick="verificaLetraEscolhida('E')">E</button>
+                            <button id="tecla-F" onclick="verificaLetraEscolhida('F')">F</button>
+                            <button id="tecla-G" onclick="verificaLetraEscolhida('G')">G</button>
+                            <button id="tecla-H" onclick="verificaLetraEscolhida('H')">H</button>
+                            <button id="tecla-I" onclick="verificaLetraEscolhida('I')">I</button>
+                        </div>
+                        <div class="teclas">
+                            <button id="tecla-J" onclick="verificaLetraEscolhida('J')">J</button>
+                            <button id="tecla-K" onclick="verificaLetraEscolhida('K')">K</button>
+                            <button id="tecla-L" onclick="verificaLetraEscolhida('L')">L</button>
+                            <button id="tecla-M" onclick="verificaLetraEscolhida('M')">M</button>
+                            <button id="tecla-N" onclick="verificaLetraEscolhida('N')">N</button>
+                            <button id="tecla-O" onclick="verificaLetraEscolhida('O')">O</button>
+                            <button id="tecla-P" onclick="verificaLetraEscolhida('P')">P</button>
+                            <button id="tecla-Q" onclick="verificaLetraEscolhida('Q')">Q</button>
+                            <button id="tecla-R" onclick="verificaLetraEscolhida('R')">R</button>
+                        </div>
+                        <div class="teclas">
+                            <button id="tecla-S" onclick="verificaLetraEscolhida('S')">S</button>
+                            <button id="tecla-T" onclick="verificaLetraEscolhida('T')">T</button>
+                            <button id="tecla-U" onclick="verificaLetraEscolhida('U')">U</button>
+                            <button id="tecla-V" onclick="verificaLetraEscolhida('V')">V</button>
+                            <button id="tecla-W" onclick="verificaLetraEscolhida('W')">W</button>
+                            <button id="tecla-X" onclick="verificaLetraEscolhida('X')">X</button>
+                            <button id="tecla-Y" onclick="verificaLetraEscolhida('Y')">Y</button>
+                            <button id="tecla-Z" onclick="verificaLetraEscolhida('Z')">Z</button>
+                            <button id="btnReiniciar">🎮</button>
+                        </div>
+                    </div>
+                    <!-- inicio modal Bootstrap-->
+                    <div class="modal fade" id="forca_jogo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content jogo_modal_resposta">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabelTitulo"></h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                            </div>
+                            <div class="modal-body" id="modalBody_jogo"></div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fechar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+    
+                    
+                <img src="../images/forca/jogarNovamente.gif" id="jogarNovamente"></img>
+                <button id="recarregar" onclick="sortear()"><i class='bx bx-refresh'></i></button>
+    
+                </div>
+    
+               
+            </div>
+    
+            <!-- jogo da memoria -->
+            <div id="jogodamemoria_div" class="container text-center mt-5 mb-3 w-100 m-auto p-2 rounded" style="background-color: #eeeeee;">
+                <h1 id="titulo_jogo" class="fs-1 mt-4">Jogo da Memória</h1>
+                <div id="game-board"></div>
+                <p id="moves-counter">Movimentos: 0</p>
+                <img src="../images/forca/jogarNovamente.gif" id="jogarNovamente"></img>
+                <button id="restart-btn" class="bt_recomessar"><i class='bx bx-refresh'></i></button>
+
+             </div>
+    
+             <!-- jogo caça palavras -->
+              <div id="caca_palavras" class="container text-center mt-5 mb-3 w-100 m-auto p-2 rounded" style="background-color: #eeeeee;">
+                <h2 class="fs-1">Caça Palavras</h2>
+                <p>Encontre as seguintes palavras na grade:</p>
+                <ul class="word-list">
+                    <li>APRENDER</li>
+                    <li>LITERATURA</li>
+                    <li>TECNOLOGIA</li>
+                    <li>INOVAR</li>
+                </ul>
+                
+                <div class="puzzle-grid" id="puzzle"></div>
+              </div>
+        </div>
+
+    </main>
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+    <script src="js/memoria.js"></script>
+    <script src="js/forca.js"></script>
+    <script src="js/palavras.js"></script>
+    <script>
+        let prevScroll = window.scrollY;
+        const nav = document.querySelector("header");
+
+        window.addEventListener("scroll", () => {
+        const currentScroll = window.scrollY;
+        
+        if (currentScroll < prevScroll) {
+            // Rolando para cima
+            nav.style.top = "0";
+        } else {
+            // Rolando para baixo
+            nav.style.top = "-100px"; // ou a altura da nav, para esconder
+        }
+
+        prevScroll = currentScroll;
+        });
+
+
+        // resgatar dados do user
+        document.addEventListener("DOMContentLoaded", function () {
+            const nivel_user = localStorage.getItem('Usuario_nivel');
+            const nome_user = localStorage.getItem('Usuario_nome');
+            const senha_user = localStorage.getItem('Usuario_senha');
+            const email_user = localStorage.getItem('Usuario_email');
+
+            if (!nivel_user) {
+                alert("Você precisa estar logado para ter acesso a essa página!");
+                window.location.href = 'login2.html';
+                return;
+            }
+        });
+
+        // carrossel grande:
+        async function carregarCarrosselNoticia() {
+            try {
+                let response = await fetch(`../backend/endpoint/Get/conteudo_get_noticia_pendente.php?status=2`);
+                let data = await response.json();
+
+                let carouselInner = document.getElementById('caroselDivNoticia'); // onde ficam os slides
+                let indicators = document.getElementById('parteBaixoCarrosel'); // os botões de indicador
+
+                // Limpa o conteúdo atual
+                carouselInner.innerHTML = '';
+                indicators.innerHTML = '';
+
+                console.log(data);
+                data.forEach((item, index) => {
+                    // Criar item do carrossel
+                    const carouselItem = document.createElement('div');
+                    carouselItem.classList.add('carousel-item');
+                    if (index === 0) carouselItem.classList.add('active');
+
+                    const link = document.createElement('a');
+                    link.href = item.Conteudo_link;
+                    link.target = '_blank';
+                    link.style.display = 'block';
+                    link.classList.add("item-a");
+
+                    carouselItem.style.backgroundImage = `url('../backend/uploads/${item.Conteudo_img}')`;
+                    carouselItem.style.backgroundSize = 'cover';
+                    carouselItem.style.backgroundPosition = 'center';
+                    carouselItem.style.backgroundRepeat = 'no-repeat';
+                    carouselItem.style.height = '100%'; // ou o tamanho que preferir
+                    carouselItem.style.borderRadius = '10px'; // se quiser manter arredondado
+
+                    const caption = document.createElement('div');
+                    caption.classList.add('carousel-caption', 'd-none', 'd-md-block');
+
+                    const h5 = document.createElement('h5');
+                    h5.textContent = item.Conteudo_titulo;
+
+                    caption.appendChild(h5);
+                    // link.appendChild(img);
+                    link.appendChild(caption);
+                    carouselItem.appendChild(link);
+                    carouselInner.appendChild(carouselItem);
+
+                    // Criar botão do indicador
+                    const indicator = document.createElement('button');
+                    indicator.type = 'button';
+                    indicator.dataset.bsTarget = "#carouselGrande";
+                    indicator.dataset.bsSlideTo = index;
+                    indicator.ariaLabel = `Slide ${index + 1}`;
+                    if (index === 0) {
+                        indicator.classList.add('active');
+                        indicator.setAttribute('aria-current', 'true');
+                    }
+                    indicators.appendChild(indicator);
+                });
+
+            } catch (error) {
+                console.error('Erro ao carregar notícias:', error);
+            }
+        }
+
+
+        // carregar modal 3 img
+        async function carregarCatalogo() {
+            try {
+                let response = await fetch('../backend/endpoint/Get/catalogo_imagem_get.php');
+                let data = await response.json();
+
+                let carouselContent = document.getElementById('carouselContent');
+                carouselContent.innerHTML = '';
+
+                let rowDiv = document.createElement('div');
+                rowDiv.classList.add('carousel-item', 'active');
+                let innerRow = document.createElement('div');
+                innerRow.classList.add('row');
+
+                data.forEach((item, index) => {
+                    let button = document.createElement('button');
+                    button.type = 'button';
+                    button.classList.add('col', 'd-flex', 'align-items-center', 'justify-content-center', 'w-100', 'm-2');
+                    button.dataset.bsToggle = "modal";
+                    button.dataset.bsTarget = "#exampleModal";
+
+                    let img = document.createElement('img');
+                    img.src = item.imagem;
+                    img.classList.add('img-fluid');
+                    img.alt = item.titulo;
+
+                    
+                    button.appendChild(img);
+                    innerRow.appendChild(button);
+
+                    if ((index + 1) % 3 === 0 || index === data.length - 1) {
+                        rowDiv.appendChild(innerRow);
+                        carouselContent.appendChild(rowDiv);
+
+                        rowDiv = document.createElement('div');
+                        rowDiv.classList.add('carousel-item');
+                        innerRow = document.createElement('div');
+                        innerRow.classList.add('row');
+                    }
+
+                    // Adiciona evento de clique para atualizar o modal
+                    button.addEventListener("click", function () {
+                        atualizarModal(item);
+                    });
+                });
+            } catch (error) {
+                console.error('Erro ao carregar catálogo:', error);
+            }
+        }
+
+        // modal de cada livro
+        function atualizarModal(livro) {
+            console.log("Livro selecionado:", livro); // Verifica no console se os dados estão corretos
+
+            document.getElementById("modalImg").src = livro.imagem;
+            document.getElementById("modalTitulo").textContent = livro.titulo;
+            document.getElementById("modalDescricao").textContent = livro.sinopse;
+            document.getElementById("modalAutor").textContent = livro.autor;
+
+            console.log(livro.biblioteca, livro.link);
+
+            const bt_bibloteca = document.querySelector("#bt_biblioteca");
+            const bt_compra = document.querySelector("#modalLinks a[href^='http']")
+
+            if (livro.biblioteca === '1' || livro.biblioteca === 1) {
+                bt_bibloteca.classList.remove("ativo_biblioteca");
+            } else {
+                bt_bibloteca.classList.add("ativo_biblioteca");
+            }
+
+            if (livro.link) {
+                bt_compra.href = livro.link;
+            } else {
+                bt_compra.href = '#';
+            }
+        }
+
+        // conectar a api e trazer todos os livros
+        async function carregarTodosLivros() {
+            try {
+                const response = await fetch("../backend/endpoint/Get/catalogo_getALL.php");
+                const livros = await response.json();
+
+                console.log("Livros recebidos:", livros); // debug
+                mostrarTodosLivros(livros);
+            } catch (error) {
+                console.error("Erro ao carregar livros:", error);
+            }
+        }
+
+        // montar o modal com todos os livros 
+        function mostrarTodosLivros(livros) {
+            const book = document.getElementById("book");
+            book.innerHTML = "";
+
+            let pagina = 1;
+            let i = 0;
+            let ultimaPaginaEhEmBranco = false; // <-- ADICIONADO AQUI
+
+            // Primeira folha com apenas o BACK
+            const paper1 = document.createElement("div");
+            paper1.classList.add("paper", "flipped");
+            paper1.id = `p${pagina}`;
+
+            const backDiv1 = document.createElement("div");
+            backDiv1.classList.add("back");
+
+            const backContent1 = document.createElement("div");
+            backContent1.id = `b${pagina}`;
+            backContent1.classList.add("back-content");
+
+            const titulo = document.createElement("h1");
+            titulo.className = "botoes fw-normal fs-2 shadow border-0";
+            titulo.innerHTML = 'Catálogo de Livros   <i class="bi bi-book"></i>';
+
+            backContent1.appendChild(titulo);
+
+            for (let j = 0; j < 2 && i < livros.length; j++, i++) {
+                const livroDiv = criarLivro(livros[i]);
+                backContent1.appendChild(livroDiv);
+            }
+
+            backDiv1.appendChild(backContent1);
+            paper1.appendChild(backDiv1);
+            book.appendChild(paper1);
+            pagina++;
+
+            // Demais folhas com front e back
+            while (i < livros.length) {
+                const paper = document.createElement("div");
+                paper.classList.add("paper");
+                paper.id = `p${pagina}`;
+
+                // FRONT
+                const frontDiv = document.createElement("div");
+                frontDiv.classList.add("front");
+
+                const frontContent = document.createElement("div");
+                frontContent.id = `f${pagina}`;
+                frontContent.classList.add("front-content");
+
+                for (let j = 0; j < 2 && i < livros.length; j++, i++) {
+                    const livroDiv = criarLivro(livros[i]);
+                    frontContent.appendChild(livroDiv);
+                }
+
+                frontDiv.appendChild(frontContent);
+                paper.appendChild(frontDiv);
+
+                // BACK
+                if (i < livros.length) {
+                    const backDiv = document.createElement("div");
+                    backDiv.classList.add("back");
+
+                    const backContent = document.createElement("div");
+                    backContent.id = `b${pagina}`;
+                    backContent.classList.add("back-content");
+
+                    for (let j = 0; j < 2 && i < livros.length; j++, i++) {
+                        const livroDiv = criarLivro(livros[i]);
+                        backContent.appendChild(livroDiv);
+                    }
+
+                    backDiv.appendChild(backContent);
+                    paper.appendChild(backDiv);
+                }
+
+                book.appendChild(paper);
+                pagina++;
+            }
+
+            // 🔁 Lógica da página em branco após todos os livros
+            const resto = livros.length % 4;
+            if (resto === 1 || resto === 2) {
+                const paper = document.createElement("div");
+                paper.classList.add("paper");
+                paper.id = `p${pagina}`;
+
+                const frontDiv = document.createElement("div");
+                frontDiv.classList.add("front");
+
+                const frontContent = document.createElement("div");
+                frontContent.id = `f${pagina}`;
+                frontContent.classList.add("front-content");
+
+                const vazio = document.createElement("div");
+                vazio.classList.add("text-center", "py-5", "text-muted");
+                vazio.innerText = " ";
+
+                frontContent.appendChild(vazio);
+                frontDiv.appendChild(frontContent);
+                paper.appendChild(frontDiv);
+
+                book.appendChild(paper);
+
+                ultimaPaginaEhEmBranco = true; // <-- MODIFICADO AQUI
+                pagina++;
+            }
+
+            // Corrige o z-index de todas as páginas no início
+            const papers = Array.from(document.querySelectorAll(".paper"));
+            papers.forEach((paper, index) => {
+                paper.style.zIndex = papers.length - index;
+            });
+
+            // Botões e viradas
+            const prevBtn = document.querySelector("#prev-btn");
+            const nextBtn = document.querySelector("#next-btn");
+
+            let currentLocation = 1;
+            const numOfPapers = papers.length;
+            const maxLocation = ultimaPaginaEhEmBranco ? numOfPapers : numOfPapers + 1;
+
+            prevBtn.onclick = goPrevPage;
+            nextBtn.onclick = goNextPage;
+
+            function goNextPage() {
+                if (currentLocation < maxLocation) {
+                    const index = currentLocation - 1;
+                    if (papers[index]) {
+                        papers[index].classList.add("flipped");
+                        papers[index].style.zIndex = currentLocation;
+                        currentLocation++;
+                    }
+                }
+            }
+
+            function goPrevPage() {
+                if (currentLocation > 1) {
+                    currentLocation--;
+                    const index = currentLocation - 1;
+                    if (papers[index] && index > 0) {
+                        papers[index].classList.remove("flipped");
+                        papers[index].style.zIndex = numOfPapers - index;
+                    }
+                }
+            }
+        }
+
+        // monta cada pedaço de cada livro e manda para o modal com todos os livro
+        function criarLivro(livro) {
+            const divLivro = document.createElement("div");
+            divLivro.classList.add("livrosCatalogo");
+
+            const img = document.createElement("img");
+            img.src = livro.Catalogo_img ? `../backend/uploads/${livro.Catalogo_img}` : "./images/default.jpg";
+            img.alt = `Capa do livro ${livro.Catalogo_titulo}`;
+
+            const textoDiv = document.createElement("div");
+            textoDiv.classList.add("textoLivro");
+
+            const h2 = document.createElement("h2");
+            h2.classList.add("fw-semibold", "fs-6", "text-center");
+            h2.textContent = livro.Catalogo_titulo;
+
+            const pAutor = document.createElement("p");
+            pAutor.classList.add("fs-6", "text-center");
+            pAutor.textContent = `Autor: ${livro.Catalogo_autor}`;
+
+            const pSinopse = document.createElement("p");
+            pSinopse.classList.add("fs-6");
+            pSinopse.textContent = livro.Catalogo_sinopse;
+
+            textoDiv.appendChild(h2);
+            textoDiv.appendChild(pAutor);
+            textoDiv.appendChild(pSinopse);
+
+            divLivro.appendChild(img);
+            divLivro.appendChild(textoDiv);
+
+            return divLivro;
+        }
+
+        carregarTodosLivros();
+
+        carregarCarrosselNoticia();
+        carregarCatalogo();
+
+        // mural de avisos
+          const board = document.getElementById('board');
+
+  // Cria um cartão no mural
+  const createCard = (id, title, text, col, row, img) => {
+    const spacingX = 300;
+    const spacingY = 250;
+    const margemLateral = 60;
+
+    const task = document.createElement('div');
+    task.className = 'task';
+    task.id = `task${id}`;
+    task.draggable = true;
+
+    task.style.left = `${col * spacingX + margemLateral}px`;
+    task.style.top = `${(row + 1) * spacingY + 20}px`;
+
+    task.innerHTML = `
+      <img src="../../api_php/backend/uploads/${img}" alt="">
+      <h2>${title}</h2>
+      <p>${text}</p>
+    `;
+
+    task.addEventListener('dragstart', drag);
+    task.addEventListener('dragend', () => task.classList.remove('dragging'));
+
+    board.appendChild(task);
+  };
+
+  // Carrega os cartões do mural a partir da API
+  async function carregarCardMural() {
+    try {
+      const response = await fetch('../../api_php/backend/endpoint/Get/mural_get.php');
+      const data = await response.json();
+
+      const cols = 3;
+
+      data.forEach((item, i) => {
+        if (i < 6) {
+          const col = i % cols;
+          const row = Math.floor(i / cols);
+          createCard(item.idMurais, item.Mural_titulo, item.Mural_cont, col, row, item.Mural_img);
+        }
+      });
+
+    } catch (error) {
+      console.error("Erro ao carregar os cards:", error);
+    }
+  }
+
+  carregarCardMural(); // <- Nome da função corrigido aqui também
+
+  // Permite soltar item
+  function allowDrop(event) {
+    event.preventDefault();
+  }
+
+  // Início do arrasto
+  function drag(event) {
+    event.dataTransfer.setData("text", event.target.id);
+    event.target.classList.add("dragging");
+  }
+
+  // Soltar e posicionar o cartão
+  function drop(event) {
+    event.preventDefault();
+    const taskId = event.dataTransfer.getData("text");
+    const task = document.getElementById(taskId);
+
+    if (task) {
+      const rect = board.getBoundingClientRect();
+      const offsetX = event.clientX - rect.left;
+      const offsetY = event.clientY - rect.top;
+
+      task.style.left = `${offsetX - task.offsetWidth / 2}px`;
+      task.style.top = `${offsetY - task.offsetHeight / 2}px`;
+    }
+  }
+
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

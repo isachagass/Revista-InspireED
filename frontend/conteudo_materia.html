@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>InspireED - História</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  </head>
+  <body>
+
+    <header class="header">
+        <nav class="navbar navbar-expand-lg h-100" style="background-color: var(--rosa);">
+            <div class="container-fluid">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <img src="./images/logo_InspireED.png" alt="" style="height: 35px;">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-5">
+                        <li class="nav-item">
+                            <a class="nav-link active text-light" aria-current="page" href="index.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" aria-current="page" href="#catalogosDivLivro">Livros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" aria-current="page" href="#mural">Mural</a>
+                        </li>
+
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Matérias
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=1">Artes</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=2">Biologia</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=3">Filosofia</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=4">Física</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=5">Geografia</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=6">História</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=7">Inglês</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=8">Matemática</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=9">Língua Portuguesa</a>
+                                </li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=10">Química</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=11">Sociologia</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- verificar userr -->
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="area_login.html">Login <i
+                                    class="bi bi-person-circle"></i></i></a>
+                        </li>
+
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <main class="pt-4">
+        <div class="topoMateria d-flex justify-content-between align-items-center mt-4">
+            <div class="titulosMateria">
+                <h1 class="botoes fw-normal fs-4 m-3 mb-0 border-0 materiaCima" id="titulo_materia"></h1>
+                <h1 class="botoes fw-normal fs-2 m-3 mt-0 p-2 materiaBaixo shadow border-0" id="parte_baixo_titulo">Matéria</h1>
+            </div>
+
+            <div class="VoltarMateria me-3">
+                <a href="#" id="voltar_escolher_conteudo">
+                    <button class="h-25">
+                        <i class="bi bi-reply-all-fill" id="voltar_icone"></i>
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <!-- colocar icons -->
+        <div class="conteudoMateria rounded mb-5">
+            <h1 class="fw-semibold fs-3" id="titulo_conteudo">Revolução Industrial e suas Consequências</h1>
+            <p id="conteudo_materia">descrição</p>
+            
+            <div class="img_cont"><img src="" alt="" class="" id="imagem"></div>
+
+        
+
+            
+            <h3 class="fw-semibold fs-5 text-center mt-3" id="dica_materia">Dica: Sempre relacione a Revolução Industrial com temas atuais</h3>
+        </div>
+
+    </main>
+    
+
+
+
+
+    <script>
+        
+        let prevScroll = window.scrollY;
+        const nav = document.querySelector("header");
+
+        window.addEventListener("scroll", () => {
+        const currentScroll = window.scrollY;
+        
+        if (currentScroll < prevScroll) {
+            // Rolando para cima
+            nav.style.top = "0";
+        } else {
+            // Rolando para baixo
+            nav.style.top = "-100px"; // ou a altura da nav, para esconder
+        }
+
+        prevScroll = currentScroll;
+        });
+
+
+        async function conteudo_materia() {
+            const params = new URLSearchParams(window.location.search);
+            const id_cont = params.get("id");
+            const materia = params.get("materia");
+
+
+            const nomes_materias = ['Null', 'Artes', 'Biologia', 'Filosofia', 'Física', 'Geografia', 'História', 'Inglês', 'Matemática', 'Português', 'Química', 'Sociologia'];
+
+            let voltar_escolher_conteudo = document.getElementById("voltar_escolher_conteudo");
+            voltar_escolher_conteudo.href = `./materia_escolher.html?materia=${materia}`;
+
+
+            let voltar_icone = document.getElementById("voltar_icone");
+            voltar_icone.classList.add(`voltar_${materia}`);
+
+            let parte_baixo_titulo = document.getElementById("parte_baixo_titulo");
+            parte_baixo_titulo.classList.add(`questao_${materia}`);
+
+            let nome_materia = document.getElementById("titulo_materia");
+            nome_materia.innerText = nomes_materias[materia];
+            nome_materia.classList.add(`materia_${materia}`)
+
+
+            let titulo_conteudo = document.getElementById("titulo_conteudo");
+            titulo_conteudo.classList.add(`voltar_${materia}`);
+            let conteudo_materia = document.getElementById("conteudo_materia");
+            let imagem = document.getElementById("imagem");
+            let dica_materia = document.getElementById("dica_materia");
+            dica_materia.classList.add(`voltar_${materia}`);
+
+            try {
+                let response = await fetch(`../backend/endpoint/Get/conteudo_cada_materia.php?materia=${materia}`);
+                data = await response.json();
+
+                let conteudoEscolhido = data.find(item => item.idConteudos === id_cont || item.idConteudos == id_cont);
+
+                console.log(data);  
+                console.log(conteudoEscolhido);
+
+                console.log("dica:", conteudoEscolhido.Conteudo_dica);
+
+                // console.log(data[id_cont]);
+
+                titulo_conteudo.innerText = conteudoEscolhido.Conteudo_titulo;
+                conteudo_materia.innerText = conteudoEscolhido.Conteudo_cont;
+                imagem.src = "../backend/uploads/"+conteudoEscolhido.Conteudo_img;
+                dica_materia.innerText = "Dica: "+conteudoEscolhido.Conteudo_dica;
+
+
+
+            } catch (error) {
+                console.error("Erro ao buscar conteúdo:", error);
+                conteudo_materia.innerText = "Erro ao carregar o conteúdo.";
+            }
+
+
+            // id da materia
+
+
+        }
+
+        conteudo_materia();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>

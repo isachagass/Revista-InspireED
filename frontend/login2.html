@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InspireED</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style_login.css">
+    
+</head>
+<body class="d-flex justify-content-center align-items-center flex-column" style="height: 90vh; background-color: var(--cinza);">
+    
+    <div class="container shadow" id="container-login">
+        <div class="form-container sign-up">
+            <!-- <h3>Preencha seus dados!</h3> -->
+            <form id="cadastroForm">
+                <h1>Cadastro</h1>
+                <label for="nome">Nome:</label>
+                <input type="text" id="Usuario_nome" name="Usuario_nome" placeholder="Nome" required>
+        
+                <label for="email">Email:</label>
+                <input type="email" id="Usuario_email"  name="Usuario_email" placeholder="Email" required>
+        
+                <label for="senha">Senha:</label>
+                <input type="password" id="Usuario_senha" name="Usuario_senha" placeholder="Senha" required>
+        
+                <div id="nivel_user_div" class="d-flex p-1 align-items-center" style="width: 100%;">
+                    
+                    <div class="d-flex justify-content-around align-items-center me-2"><input type="radio" name="nivel_user" value="1" required class="me-1"> Aluno</div>
+                    
+                    <div class="d-flex justify-content-around align-items-center"><input type="radio" name="nivel_user" value="1" class="me-2"> Professor</div>
+                    
+                    
+                </div>
+        
+        
+                <button type="submit" class="bt_envio_login">Cadastrar</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+
+            <form id="loginForm">
+                <h1>Login</h1> 
+                <input type="email" id="Login_email" placeholder="Email" required>
+                <input type="password" id="Login_senha" placeholder="Senha" required>
+                <p id="loginResponse" style="color: red;"></p>
+                <button type="submit" class="bt_envio_login">Entrar</button>
+            </form>
+
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left" style="background-color: var(--rosa);">
+                    <img src="./images/logo_InspireED.png" alt="Logo InspireED" class="w-50 mt-5">
+                    <h1 class="text-center text-white fs-3 fw-semibold mt-4">Bem Vindo de Volta!</h1>
+                    <p class="text-center text-white fw-normal">Acesse sua conta agora <br> mesmo</p>
+                    
+                    <button class="hidden bt_login" id="login">Login</button>
+                </div>
+                <div class="toggle-panel toggle-right" style="background-color: var(--rosa);">
+                    <img src="./images/logo_InspireED.png" alt="" class="w-50 mb-4 botoes">
+                    <h2 class="text-white fs-3 fw-semibold">Seja Bem-Vindo!</h2>
+                    <p>Ainda não tem uma conta?</p>
+                    
+                    <button class="hidden bt_login" id="register">cadastre-se</button>
+                </div>
+            </div>
+        </div>
+    </div>
+     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <script>
+        const container = document.getElementById('container-login');
+        const registerBtn = document.getElementById('register');
+        const loginBtn = document.getElementById('login');
+
+        registerBtn.addEventListener('click', () => {
+            container.classList.add("active");
+        });
+
+        loginBtn.addEventListener('click', () => {
+            container.classList.remove("active");
+        });
+
+        // forms de login e cadastro
+        document.addEventListener("DOMContentLoaded", () => {
+            // cadastrar -> conexao com api
+            document.getElementById("cadastroForm").addEventListener("submit", async function(event) {
+                event.preventDefault();
+    
+                const nome = document.getElementById("Usuario_nome").value;
+                const email = document.getElementById("Usuario_email").value;
+                const senha = document.getElementById("Usuario_senha").value;
+                const nivel = document.querySelector("input[name='nivel_user']:checked")?.value;
+    
+                console.log("nivel",nivel);
+    
+                const dados = {
+                    Usuario_nome: nome,
+                    Usuario_email: email,
+                    Usuario_senha: senha,
+                    Usuario_nivel: nivel
+    
+                };
+    
+                try{
+                    const resposta = await fetch("../backend/endpoint/Post/user_post.php", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        }, 
+                        body: JSON.stringify(dados)
+                    });
+                
+                    const resultado = await resposta.json();
+                
+                    if (resultado.status === 'success'){
+                        alert("Usuário cadastrado com sucesso!");
+                        document.getElementById("cadastroForm").reset();
+                        
+                    } else{
+                        alert("Erro ao cadastrar usuário! Tente novamente");
+                    }
+    
+                }
+                catch (erro){
+                    console.error("Erro ao conectar a API:", erro);
+                    alert("Erro ao conectar a API!!");
+                }
+                
+    
+            });
+    
+    
+            // login  -> conexao com api
+            document.getElementById("loginForm").addEventListener("submit", async function (event) {
+            event.preventDefault();
+    
+            const email = document.getElementById("Login_email").value;
+            const senha = document.getElementById("Login_senha").value;
+            const mensagem_p = document.getElementById("loginResponse");
+
+    
+            try {
+                const response = await fetch("../backend/endpoint/Post/login.php", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ Usuario_email: email, Usuario_senha: senha })
+                });
+    
+                const result = await response.json(); // Convertendo a resposta para JSON
+                
+                const nivel_user = result.nivel;
+    
+                if (result.status === "success") {
+    
+                    alert("Login realizado com sucesso!");
+                    console.log(result);
+
+                    localStorage.setItem("Usuario_nivel", result.nivel);
+                    localStorage.setItem("Usuario_nome", result.nome);
+                    localStorage.setItem("Usuario_senha", result.senha);
+                    localStorage.setItem("Usuario_email", result.email);
+                    localStorage.setItem("id_user", result.id_user);
+                    localStorage.setItem("Usuario_img", result.img);
+    
+                    window.location.href = 'index.html';  
+
+                } else {
+                    mensagem_p.innerText = result.message || "Usuário ou senha incorretos.";
+                }
+            } catch (error) {
+                mensagem_p.innerText = "Erro ao conectar com o servidor.";
+                console.error(error);
+            }
+        });
+           
+            
+        });
+
+
+
+
+    </script>
+</body>
+</html>

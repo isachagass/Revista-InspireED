@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisar Notícias</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg h-100" style="background-color: var(--rosa);">
+            <div class="container-fluid">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <img src="./images/logo_InspireED.png" alt="" style="height: 35px;">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-5">
+                        <li class="nav-item">
+                            <a class="nav-link active text-light" aria-current="page" href="index.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" aria-current="page" href="#catalogosDivLivro">Livros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" aria-current="page" href="#mural">Mural</a>
+                        </li>
+
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Matérias
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=1">Artes</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=2">Biologia</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=3">Filosofia</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=4">Física</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=5">Geografia</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=6">História</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=7">Inglês</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=8">Matemática</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=9">Língua Portuguesa</a>
+                                </li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=10">Química</a></li>
+                                <li><a class="dropdown-item" href="./materia_escolher.html?materia=11">Sociologia</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- verificar userr -->
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="area_login.html">Login <i
+                                    class="bi bi-person-circle"></i></i></a>
+                        </li>
+
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="m-auto pt-3" style="width: 85%;">
+        <a href="./area_login.html" class="revisar_icone"><i class="bi bi-arrow-left-circle-fill" ></i></a>
+
+
+        <div class="d-flex justify-content-around w-100 mt-5">
+
+
+
+            <div class="criar-livro-div w-100">
+
+                
+                <h1 class="botoes fs-3 w-50 fw-normal m-auto mb-3" style="background-color: #001ab1;">Usuários
+                </h1>
+
+                <div class=" p-2">
+
+                    <!-- div com os conteudos já no catalogo -->
+                    <div class="div_questoes revisar_div" id="div_livros_em_catalogo">
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- modais -->
+
+        <!-- atualizar -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!-- titulo do livro -->
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar usuário</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <!-- forms -->
+
+                        <form>
+
+                            <div class="mb-3">
+                                <label for="nome_user_atualizar" class="col-form-label">Nome:</label>
+                                <input type="text" class="form-control" id="nome_user_atualizar">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email_user_atualizar" class="col-form-label">Email:</label>
+                                <input type="email" class="form-control" id="email_user_atualizar">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="senha_user_atualizar" class="col-form-label">Senha:</label>
+                                <input type="password" class="form-control" id="senha_user_atualizar">
+
+                            </div>
+
+                            
+
+                            <div class="mb-3">
+
+                                <label class="me-2">
+                                    <input type="radio" name="nivel_user_atualizar" value="1" required> Aluno
+                                </label>
+
+                                <label class="me-2">
+                                    <input type="radio" name="nivel_user_atualizar" value="2"> Professor
+                                </label>
+
+                                <label class="me-2">
+                                    <input type="radio" name="nivel_user_atualizar" value="3"> Administrador
+                                </label>
+                            </div>
+
+                            
+                            <input type="hidden" id="id_user_atualizar" value="id_user_atualizar" style="display: none;">
+
+                            
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- mandar abrir modal 2 de sucess -->
+                        <button type="button" class="btn btn-secondary bt_excluir_modal" id="excluir_user" >Deletar</button>
+                        <button type="button" class="btn btn-primary" id="atualizar_user">Atualizar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- animaçao -->
+      <div class="modal fade" id="exampleModalToggle2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content text-center p-4 d-flex flex-column justify-content-center align-items-center" style="height: 50vh;">
+            <div class="checkmark-wrapper">
+              <svg viewBox="0 0 100 100">
+                <circle class="circle" cx="50" cy="50" r="45" />
+                <polyline class="checkmark" points="30,52 45,70 75,35" />
+              </svg>
+            </div>
+            <h5 class="modal-title" id="mensagem_sucess">Conteúdo registrado com sucesso!</h5>
+          </div>
+        </div>
+      </div>
+
+
+    </main>
+
+    <script>
+        
+        let prevScroll = window.scrollY;
+        const nav = document.querySelector("header");
+
+        window.addEventListener("scroll", () => {
+        const currentScroll = window.scrollY;
+        
+        if (currentScroll < prevScroll) {
+            // Rolando para cima
+            nav.style.top = "0";
+        } else {
+            // Rolando para baixo
+            nav.style.top = "-100px"; // ou a altura da nav, para esconder
+        }
+
+        prevScroll = currentScroll;
+        });
+
+        async function carregarUsuarios() {
+            try {
+                let response = await fetch('../backend/endpoint/Get/user_get.php');
+                let data = await response.json();
+
+                let div_em_catalogo = document.getElementById('div_livros_em_catalogo');
+                div_em_catalogo.innerHTML = '';
+
+
+                console.log(data);
+
+                
+
+
+
+                data.forEach(item => {
+                    // Criar item do carrossel
+                    const elemA = document.createElement('a');
+                    elemA.classList.add('noticia_div_revisar', 'shadow', 'p-3');
+
+                    // colocar o modal com os inputs para a edição, colocar 2 buttons editar e excluir.
+                    // ver design do modal
+                    elemA.href = "#";
+                    elemA.setAttribute('data-bs-toggle', 'modal');
+                    elemA.setAttribute('data-bs-target', '#exampleModal');
+
+                    elemA.setAttribute('data-id', item.idUsuarios); // Exemplo: ID
+                    elemA.setAttribute('data-nome', item.Usuario_nome);
+                    elemA.setAttribute('data-email', item.Usuario_email);
+                    elemA.setAttribute('data-senha', item.Usuario_senha);
+                    elemA.setAttribute('data-nivel', item.Usuario_nivel);
+                    
+                    if (item.Usuario_nivel == '1'){
+                        elemA.classList.add('aluno_aluno');
+                    } else if(item.Usuario_nivel == '2'){
+                        elemA.classList.add('aluno_pendente');
+                    } else{
+                        elemA.classList.add('aluno_reprovada');
+                    }
+
+                    const elemh1 = document.createElement('h1');
+                    elemh1.innerText = item.Usuario_nome;
+
+                    const elempA = document.createElement('p');
+                    elempA.classList.add('autor');
+                    elempA.innerText = item.Usuario_email;
+
+                    elemA.appendChild(elemh1);
+                    elemA.appendChild(elempA);
+
+                    elemA.addEventListener('click', function () {
+                        const id = this.getAttribute('data-id');
+                        console.log("id: "+ id);
+                        
+                        const nome = this.getAttribute('data-nome');
+                        const email = this.getAttribute('data-email');
+                        const senha = this.getAttribute('data-senha');
+                        const nivel = this.getAttribute('data-nivel');
+                        
+                        console.log("ID:", id);
+
+                        document.getElementById('id_user_atualizar').value = id;
+                        document.getElementById('nome_user_atualizar').value = nome;
+                        document.getElementById('email_user_atualizar').value = email;
+                        document.getElementById('senha_user_atualizar').value = senha;
+                        // document.getElementById('nivel_user_atualizar').value = nivel;
+                     
+                    });
+
+                    div_em_catalogo.appendChild(elemA);
+
+                    
+
+
+                });
+
+            } catch (error) {
+                console.error('Erro ao carregar Livros:', error);
+            }
+
+
+
+        }
+
+        carregarUsuarios()
+
+        document.getElementById('atualizar_user').addEventListener("click", async () => {
+            console.log("Input ID user:", document.getElementById('id_user_atualizar'));
+
+            const id_user = document.getElementById('id_user_atualizar').value;
+
+            const nome_user = document.getElementById('nome_user_atualizar').value;
+            const email_user = document.getElementById('email_user_atualizar').value;
+            const senha_user = document.getElementById('senha_user_atualizar').value;
+
+            const nivel_user = document.querySelector('input[name="nivel_user_atualizar"]:checked')?.value;
+
+       
+
+            const formData_User = new FormData();
+            formData_User.append('Usuario_nome', nome_user);
+            formData_User.append('Usuario_email', email_user);
+            formData_User.append('Usuario_senha', senha_user);
+            formData_User.append('Usuario_nivel', nivel_user);
+            formData_User.append('idUsuarios', id_user);
+     
+            try {
+
+                const response = await fetch('../backend/endpoint/Update/user_update.php', {
+                    method: 'POST',
+                    body: formData_User
+                });
+
+                let resultado = await response.json();
+                console.log(resultado);
+
+                console.log("enviando dados para atualizar:" + formData_User);
+                carregarUsuarios();
+
+
+                // COLOCAR SEGUNDO MODAL COM ANIMACAO, OU PARA FECHAR AO TERMINAR
+
+                setTimeout(() => {
+                    // Fecha o modal atual (supondo que é o exampleModalToggle1)
+                    const modal1 = bootstrap.Modal.getInstance(document.getElementById("exampleModal"));
+                    if (modal1) modal1.hide();
+
+                    // Abre o próximo modal de certo
+                    const modal2 = new bootstrap.Modal(document.getElementById("exampleModalToggle2"));
+                    modal2.show();
+                    
+                    document.querySelector('#mensagem_sucess').innerText = 'Usuário atualizado com sucesso!';
+                        setTimeout(() => {
+                            modal2.hide();
+
+                        }, 2500);
+                }, 500);
+
+
+            } catch (error) {
+                console.error('Erro ao atualizar:', error);
+                alert('Erro ao atualizar usuário.');
+            }
+        });
+
+        document.getElementById("excluir_user").addEventListener('click', async ()=>{
+            const id_user = document.getElementById('id_user_atualizar').value;
+            console.log("id_user:", id_user)
+
+            try {
+                const response = await fetch('../backend/endpoint/Delete/user_delete.php', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        idUsuarios: id_user
+                    })
+                });
+
+                const textResponse = await response.text(); // Recebe a resposta como texto
+                console.log(textResponse); // Verifique o que está sendo retornado
+
+                let resultado;
+
+                // let resultado = await response.json();
+                console.log(resultado);
+
+                carregarUsuarios();
+
+                setTimeout(() => {
+                    // Fecha o modal atual (supondo que é o exampleModalToggle1)
+                    const modal1 = bootstrap.Modal.getInstance(document.getElementById("exampleModal"));
+                    if (modal1) modal1.hide();
+
+                    // Abre o próximo modal de certo
+                    const modal2 = new bootstrap.Modal(document.getElementById("exampleModalToggle2"));
+                    modal2.show();
+                    
+                    document.querySelector('#mensagem_sucess').innerText = 'Usuário deletado com sucesso!';
+                        setTimeout(() => {
+                            modal2.hide();
+
+                        }, 2500);
+                }, 500);
+
+                
+            } catch (error) {
+                console.log("Erro na conexão!");
+                console.log(error);
+            }
+        })
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
