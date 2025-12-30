@@ -1,3 +1,5 @@
+## **InspireED**
+
 Durante o curso de Desenvolvimento de Sistemas, desenvolvi o projeto inspireED, uma iniciativa que une inspiração e educação com o objetivo de integrar tecnologia ao processo educacional na era digital.
 
 O inspireED foi concebido como uma revista digital interativa, pensada para ser um espaço onde os alunos possam estudar, se atualizar e se divertir simultaneamente. A aplicação foi estruturada seguindo o padrão arquitetural MVC, garantindo organização, separação de responsabilidades e facilidade de manutenção, além da utilização do Bootstrap para responsividade, consistência visual e melhor experiência do usuário.
